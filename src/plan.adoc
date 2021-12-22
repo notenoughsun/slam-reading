@@ -1,6 +1,7 @@
 = plan for documenting
+22.12.2021
 
-Необходимо описать
+.Необходимо описать
 1. Использование камер глубины в задачах навигации внутри и вне помещений. - 20 стр.
 2. Использование RGB-камер (моно, стерео) в задачах навигации внутри и вне помещений. - 20 стр.
 3. Описание алгоритмов ORB SLAM, особенно методов ИИ, используемых в них. - 50 стр.
@@ -24,21 +25,30 @@
 * контроль окружения (определение объектов, людей) - избежание столкновений
 * todo about navigation
 
-TODO:: describe navigation
+
+Vision-based SLAM: стерео- и depth-SLAM
+https://habr.com/ru/company/singularis/blog/279035/
+
 
 == Использование RGB-камер (моно, стерео) в задачах навигации внутри и вне помещений. - 20 стр.
 
+
+LSD-SLAM: Large-Scale Direct Monocular SLAM
+https://vision.in.tum.de/research/vslam/lsdslam?redirect=1
+
+http://vision.in.tum.de/_media/research/lsdslam/pointcloud.jpg
 
 
 == Описание алгоритмов ORB SLAM, особенно методов ИИ, используемых в них. - 50 стр.
 
 
-прочитать статью, сделать общий обзор
 
-
-
-* Описание алгоритмА ORB SLAM
-* слам интро, что такое, постановка, цели, .....
+статья по методам ии, описание текстом, смотрю сейчас
+https://programmersought.com/article/87761070085/
 
 ORB SLAM2
-ORB SLAM3
+=== ORB SLAM3
+
+прочитать статью, сделать общий обзор
+
+ORB-SLAM3 paper summary https://programmersought.com/article/85105331899/
