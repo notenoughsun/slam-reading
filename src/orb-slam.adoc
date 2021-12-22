@@ -1,0 +1,227 @@
+== Описание алгоритмов ORB SLAM, особенно методов ИИ, используемых в них.
+
+
+ORB SLAM - описание алгоритма
+категория
+что такое слам, его особенность
+
+
+
+// методы SLAM имеют свои преимущества и недостатки. Однако, для решения проблемы навигации мобильного робота внутри помещения
+
+склека карты, проблемы склейки
+гибкие алгоритмы
+
+// Основными требования являются точность позиционирования работа до 5 см в помещении, площадью более 100 м2
+
+// в зависимости от требований предъявляются к алгоритму позиционирования?
+подходящий алгоритм позиционирования можно выбрать в сооответствии с требониями к точности и качеству позицинирвования
+
+
+сложности использования детерменированныхх методов slam (Gmapping) - составление карты может нарушаться после исследования определенной площади.
+
+Современные решения отдают предпочтение более функциональным и гибким методам SLAM
+
+
+  Google Cartographer обладает большей гибкостью в плане настроек и выбора сенсоров. Возможность использования не только лидаров, но также камер глубины позволяет получить большее количество информации. Также, Cartographer позволяет без проблем составлять карты больших по площади помещений.
+
+  В отличие от GMapping и Cartographer, Rtabmap SLAM строит не только 2D карту, но и создает базу данных визуальных образов. Таким образом, Rtabmap ищет глобальные совпадения по визуальным образам, в то время как составленная карта помещения может использоваться лидаром для локальной корректировки местоположения робота в пространстве.
+
+
+Представление карты::
+При использовании SLAM отображение карты может быть как в 2D, так и в 3D.
+
+Использование камеры позволяет строить трехмерную карту. Трехмерная карта обладает преимуществом в локациях со сложнойконигурацией, в том числе в зданиях. Используя двухмерную карту невозможно учесть некоторую геометрию здания, межэтажные переходы, расположение локальных устройств позиционирования относительно поверхности.
+
+
+
+
+методы SLAM можно разделить по используемым подходам SLAM для представления карт. Например, SLAM, основанные на сетке точек (grid-based), на основе распознавания уникальных объектов (feature-based) и на основе графиков (graph-based) для более разреженных изображений, топологические (topological) для распознавания типов местоположений и семантические (semantic) для более высокого уровня понимания окружающей среды [1].
+
+
+
+1.1 Feature-based SLAM
+
+Feature-based SLAM используют легко идентифицируемые элементы в среде и создают внутреннее представление о пространстве с учетом местоположения этих ориентиров. Исторически самый ранний и наиболее влиятельный SLAM алгоритм основан на расширенном фильтре Калмана (EKF – Extended Kalman Filter).
+
+// При семантическом алгоритме возможны значительные ошибки позиционирования.
+При семантическом алгоритме нет прямых измерений, а координата определяется по сопоставлению похожих изображений. Даже при хорошей точности агоритма, небольшая ошибка сопоствления может давать значительные скачки в позиционировании.
+
+При использовании алгоритма совместно с другими методами локализации можно получить значительное повышение точности.
+
+Можно использовать данный метод также в качестве первого приближения для дадльнейшей задачи.
+Факт того что метод не учитывает геометрию пространства означает что требуется большая подготовительная работат для обеспечения качества работы метода. А также нет гарантии работы метода в сложных визуальных условиях.
+
+
+
+1.5 SemanticSLAM
+
+Представление карт также может быть выполнено в виде моделей семантических карт. В отличие от топологических подходов, где отображение фильтрует метрическую информацию и использует только распознавание мест для различения местоположения, семантическое сопоставление связывает семантические концепции с объектами в окружающей среде.
+
+Алгоритм состоит из нескольких стадий.
+
+- Построение карты с сегментацией значимых объектов на карте (указатели и вывески, оборудование, выходы, лестницы, пожарное оборудование).
+- Входной видеопоток с камеры сегментируется и определяются те же категории объектов
+- Сопоставляются данные сегментации с камеры и карта
+
+Семантическое отображение все еще находится на ранних стадиях разработки и, в зависимости от уровня необходимых семантических возможностей, оно может быть очень сложным для реализации.
+// Несмотря на это, согласно Carlos Miguel [1] было проведено множество исследований по семантическому отображению и семантическому SLAM [7, 9].
+
+Преимущество семантического отбражения в том что распознавание категорий объектов может не зависить от освещенности, может однозначно сопоставляется с физической картой.
+
+>>>
+
+---
+from
+https://doi.org/10.1002/rob.21831
+
+== orb slam notation
+
+ORB-SLAM2 [Mur-Artal and Tardós, 2017] and S-PTAM [Pire et al., 2017] are currently two of
+the best state-of-the-art feature-based visual SLAM approaches that can be used with a stereo
+camera. More recently, ProSLAM [Schlegel et al., 2017] has been released (only benchmark tools
+available at this time) to provide a comprehensive open source package using well know visual
+SLAM techniques. For ORB-SLAM2, it can be also used with a RGB-D camera. They are all
+graph-based SLAM approaches. For ORB-SLAM2 and S-PTAM, when a loop closure is detected
+using DBoW2 [Gálvez-López and Tardós, 2012], the map is optimized using bundle adjustment.
+Graph optimization after loop closure is done in a separate thread to avoid influencing camera
+tracking frame rate performance. For ProSLAM, loop closures are detected by direct comparison
+of the descriptors in the map, instead of using a bag-of-words approach. For all these approaches,
+loop closure detection and graph optimization processing time increases as the map grows, which
+can make loop closure correction happening with a significant delay after being detected. The
+approaches maintain a sparse feature map. Without occupancy grid or dense point cloud outputs
+available out-of-the-box like lidar approaches, they can be then difficult to use on a real robot.
+
+ORB-SLAM2 [Mur-Artal and Tardós, 2017]
+S-PTAM [Pire et al., 2017]
+ProSLAM [Schlegel et al., 2017]
+DBoW2 [Gálvez-López and Tardós, 2012]
+loop closure detection
+graph optimization processing
+bundle adjustment
+descriptors in the map
+sparse feature map
+occupancy grid or dense point cloud
+graph-based SLAM approaches
+visual
+SLAM
+
+// orb-slam - graph based, no occupancy grid or dense point cloud
+
+
+
+== ElasticFusion [Whelan et al., 2016], Kintinuous [Whelan et al., 2015], BundleFusion [Dai et al., 2017]
+
+and InfiniTAM [Kähler et al., 2016] are based on truncated signed distance field (TSDF) volume
+for RGB-D cameras. They can reconstruct online very appealing surfel-based maps, but a powerful
+computer with a recent Nvidia GPU is required. For ElasticFusion, while being able to process
+camera frames in real-time for small environments, processing time per frame increases according to
+the number of surfels in the map. For BundleFusion, global dense optimization time on loop closure
+detection increases according to the size of the environment. InfiniTAM seems faster to close loops,
+though processing time for loop closure detection and correction still increases with the size of the
+environment. While being open-source, these algorithms do not support ROS because they rely on
+extremely fast and tight coupling between the mapping and tracking on the GPU.
+
+do not supporrt ROS, rely on gpu implementation
+RGB-D cameras. They can reconstruct online map geometry.
+
+surfels
+do not support ROS
+mapping and tracking on the GPU
+
+
+All these previous visual SLAM approaches assume that the camera is never obstructed or that images always
+have enough visual features to track
+
+enough visual features to track
+
+
+
+// problems of visual localization
+camera can be fully obstructed from people passing by or when the robot is facing a surface
+without visual features (e.g., white wall) during navigation
+
+// The following visual SLAM approaches are designed to be more robust to these events: MCPTAM [Harmat et al., 2015], RGBDSLAMv2 [Endres et al., 2014]
+
+
+The Lidar 3D category includes all point cloud types, including those derived from depth images of a RGB-D camera.
+
+
+
+
+=== Graph Optimization
+
+When a loop closure or a proximity detection are detected or some nodes are retrieved or transferred because
+of memory management, a graph optimization approach is applied to minimize errors in the map.
+
+// При изменениях в карте в то же время
+RTAB-Map integrates three graph optimization approaches: TORO [Grisetti et al., 2010], g2o [Kummerle et al.,
+2011] and GTSAM [Dellaert, 2012]. g2o and GTSAM converge faster than TORO, but are less robust to
+multi-session mapping when multiple independent graphes have to be merged together. TORO is also less
+sensitive to poorly estimated odometry covariance. However, for single map, based on empirical data, g2o
+and GTSAM optimization quality is better than TORO, particularly for 6DoF maps. GTSAM is slightly
+more robust to multi-session than g2o, and thus is the strategy now used by default in RTAB-Map contrarily
+to our previous works using TORO.
+
+При неправильном определении замыкания, добавление неправильной связи в граф значительно ухудшит качество карты.
+Решение проблемы неправильного замыкания.
+Необзодимо добиться ситуации что неправильные замыкания вообще не добвляются в граф.
+
+Если коррекция для элемента после нового замыкания оптимизации графа превышает максимальный лимит перемещения, то замыкание удаляется.
+
+Таким образом карта может создаваться итеративно множество раз пока не возникает ошибка. При отсутствии неправильных замыканий, большом количестве данных и итеративном процессе построения карты можно гарантировать сходимость алгоритма.
+Удаленные данные можно попытаться добавить в карту еще раз после построения остальной части карты.
+
+.sam references
+. Alexander Cunningham, Manohar Paluri, and Frank Dellaert. Ddf-sam: Fully distributed slam using constrained factor graphs. 2010.
+. Frank Dellaert and Michael Kaess. Square root sam: Simultaneous localization and mapping via square root information smoothing. 2006.
+. Michael Kaess, Hordur Johannsson, Richard Roberts, Viorela Ila, John Leonard, and Frank Dellaert. isam2: Incremental smoothing and mapping using the bayes tree. 2012.
+. Michael Kaess, Ananth Ranganathan, and Frank Dellaert. isam: Incremental smoothing and mapping. 2008.
+. R. Ku ̈mmerle, G. Grisetti, H. Strasdat, and W. Konolige, K. andBurgard. g2o: A general framework for graph optimization. 2011.
+
+
+
+
+
+// Global Map Assembling
+
+// Построение карты
+
+Создание карты
+// глобальной карты на основе полученных данных
+
+.виды представлений:
+- occupancy grids - сетка
+
+Карта препятствий (Occupancy Map, Grid)
+Облако точек (PointCloud)
+Плотное облако точек(Octomap, dense point cloud)
+
+If a link’s transformation in the graph
+after optimization has changed more than than the factor “RGBD/OptimizeMaxError” of its translational
+variance, all loop closure and proximity links added by the new node are rejected, keeping the optimized
+graph as if no loop closure happened.
+
+
+
+
+
+=== references
+
+https://programmersought.com/article/85105331899/
+// https://githubmemory.com/repo/Mauhing/ORB_SLAM3
+// ORB-SLAM3 Related Publications: https://github.com/UZ-SLAMLab/ORB_SLAM3
+//
+// [ORB-SLAM3] Carlos Campos, Richard Elvira, Juan J. Gómez Rodríguez, José M. M. Montiel and Juan D. Tardós, ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual-Inertial and Multi-Map SLAM, IEEE Transactions on Robotics 37(6):1874-1890, Dec. 2021. PDF.
+//
+// [IMU-Initialization] Carlos Campos, J. M. M. Montiel and Juan D. Tardós, Inertial-Only Optimization for Visual-Inertial Initialization, ICRA 2020. PDF
+//
+// [ORBSLAM-Atlas] Richard Elvira, J. M. M. Montiel and Juan D. Tardós, ORBSLAM-Atlas: a robust and accurate multi-map system, IROS 2019. PDF.
+//
+// [ORBSLAM-VI] Raúl Mur-Artal, and Juan D. Tardós, Visual-inertial monocular SLAM with map reuse, IEEE Robotics and Automation Letters, vol. 2 no. 2, pp. 796-803, 2017. PDF.
+//
+// [Stereo and RGB-D] Raúl Mur-Artal and Juan D. Tardós. ORB-SLAM2: an Open-Source SLAM System for Monocular, Stereo and RGB-D Cameras. IEEE Transactions on Robotics, vol. 33, no. 5, pp. 1255-1262, 2017. PDF.
+//
+// [Monocular] Raúl Mur-Artal, José M. M. Montiel and Juan D. Tardós. ORB-SLAM: A Versatile and Accurate Monocular SLAM System. IEEE Transactions on Robotics, vol. 31, no. 5, pp. 1147-1163, 2015. (2015 IEEE Transactions on Robotics Best Paper Award). PDF.
+//
+// [DBoW2 Place Recognition] Dorian Gálvez-López and Juan D. Tardós. Bags of Binary Words for Fast Place Recognition in Image Sequences. IEEE Transactions on Robotics, vol. 28, no. 5, pp. 1188-1197, 2012. PDF
