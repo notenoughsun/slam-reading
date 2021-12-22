@@ -56,7 +56,7 @@ image::images/plan-9e792.png[]
 
 Алгоритмы из другой группы первоначально извлекают из кадра ключевые точки — наиболее выделяющиеся точки изображения, а остальную информацию отбрасывают. Существуют различные методы извлечения ключевых точек - дескрипторов (ORB, FAST, BRIEF, SIFT, SURF, ...). []
 Принципиального отличия между методом извлечения ключевых точек нет.
-Самым популярным методом кодирования дескрипторов с учетом точности и производительности является ORB. 
+Самым популярным методом кодирования дескрипторов с учетом точности и производительности является ORB.
 Эти дескрипторы являются частью алгоритма ORB-SLAM.
 
 Использования характерных точек изображения недостаточно для полного понимания окружения.
@@ -77,8 +77,32 @@ image::images/visual-slam-ebc4b.png[]
 Семантические методы навигации: если извлечь семантическую информацию из изображений (границы объектов, объекты - машины, пешеходы), можно анализировать связаную с объектом информацию.
 
 
-В примере (), применение семантической визуальной одометрии позволило применить информацию с объектов вне зоны близкой видимости камеры. Учет удаленных объектов в алгоритме навигации позволил уменьшить ошибку позиционирования.
-// Алгоритм использует принцип семантического
+// В примере (), применение семантической визуальной одометрии позволило применить информацию с объектов вне зоны близкой видимости камеры. Учет удаленных объектов в алгоритме навигации позволил уменьшить ошибку позиционирования.
+// // Алгоритм использует принцип семантического
+
+
+посмотреть алгоритмы с учетом сегментации, сделать обзор
+
+image::images/visual-slam-d4d65.png[]
+
+.Kimera: an Open-Source Library for Real-Time Metric-Semantic Localization and Mapping https://arxiv.org/abs/1910.02490
+image::images/visual-slam-a0ea3.png[]
+
+https://github.com/MIT-SPARK/Kimera-VIO
+
+
+посмотреть то же для автомобилей, как используется
+
+* "Камеры глубины — тихая революция (когда роботы будут видеть) Часть 1 / Хабр" https://habr.com/ru/post/457524/
+* "Depth Sensing Takes Machine Vision into Another Dimension - EE Times Europe" https://www.eetimes.eu/depth-sensing-takes-machine-vision-into-another-dimension/
+* "Real-Time High Resolution 3D Depth Sensing Enters the Next Round – Metrology and Quality News - Online Magazine" https://metrology.news/real-time-high-resolution-3d-depth-sensing-enters-the-next-round/
+* "Products – Nerian Vision Technologies" https://nerian.com/products/
+* "Depth Sensing Overview | Stereolabs" https://www.stereolabs.com/docs/depth-sensing/
+* "Depth Sensors: Precision & Personal Privacy | Terabee" https://www.terabee.com/depth-sensors-precision-personal-privacy/
+* "MIT-SPARK/Kimera-VIO: Visual Inertial Odometry with SLAM capabilities and 3D Mesh generation." https://github.com/MIT-SPARK/Kimera-VIO
+* "[1910.02490] Kimera: an Open-Source Library for Real-Time Metric-Semantic Localization and Mapping" https://arxiv.org/abs/1910.02490
+* "Vision-based SLAM: стерео- и depth-SLAM / Хабр" https://habr.com/ru/company/singularis/blog/279035/
+
 
 // we have proposed a novel visual semantic odometry (VSO) frame-
 // work that can be readily integrated into existing VO systems. Our method har-
@@ -86,20 +110,20 @@ image::images/visual-slam-ebc4b.png[]
 // term constraints into the odometry objective. By appropriately handling the
 // lack of structure of the semantic identity, we are able to effectively and signifi-
 // cantly reduce translational drift
-
-
-Input Search. When dealing with cameras, the data con-
-tained in frames must ﬁrst be extracted. Some methods use
-the pixel intensity to match diﬀerent frames: they are called
-direct methods. In this case, the mapped elements can be
-pixel maps, i.e., the frame is relocated in the 3D map and each
-pixel is given its corresponding depth (Section 4.3). Other
-methods extract features (points in the zone of interest of
-the image, i.e., easily recognizable, or, alternatively, lines or
-curve segments) in each frame and use geometric constraints
-for matching. Feature extraction is a well-known ﬁeld of
-computer vision. Feature descriptors often use intensity
-gradients to detect zones of interest. In this case, the mapped
-elements can be 3D poses of features. Famous descriptors
-include Harris [28], SURF [29], SIFT [30], FAST [31], and
-ORB [32].
+//
+//
+// Input Search. When dealing with cameras, the data con-
+// tained in frames must ﬁrst be extracted. Some methods use
+// the pixel intensity to match diﬀerent frames: they are called
+// direct methods. In this case, the mapped elements can be
+// pixel maps, i.e., the frame is relocated in the 3D map and each
+// pixel is given its corresponding depth (Section 4.3). Other
+// methods extract features (points in the zone of interest of
+// the image, i.e., easily recognizable, or, alternatively, lines or
+// curve segments) in each frame and use geometric constraints
+// for matching. Feature extraction is a well-known ﬁeld of
+// computer vision. Feature descriptors often use intensity
+// gradients to detect zones of interest. In this case, the mapped
+// elements can be 3D poses of features. Famous descriptors
+// include Harris [28], SURF [29], SIFT [30], FAST [31], and
+// ORB [32].

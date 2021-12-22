@@ -4,6 +4,15 @@
 * [ ] есть описание по orb--slam3, нужно отформатировать
 * [ ] выбрать тезисы которые вообще надо указать в документе
 
+* "ROS. Стек навигации / Хабр" https://habr.com/ru/post/327888/
+* "robotics-smoothing-and-mapping/README.md at master · ccorcos/robotics-smoothing-and-mapping" https://github.com/ccorcos/robotics-smoothing-and-mapping/blob/master/README.md
+* "raulmur/ORB_SLAM2: Real-Time SLAM for Monocular, Stereo and RGB-D Cameras, with Loop Detection and Relocalization Capabilities" https://github.com/raulmur/ORB_SLAM2
+* "ORB-SLAM3 paper summary - Programmer Sought" https://programmersought.com/article/85105331899/
+* "Computer Vision Group - Visual SLAM - LSD-SLAM: Large-Scale Direct Monocular SLAM" https://vision.in.tum.de/research/vslam/lsdslam?redirect=1
+* "💤 Vision-based SLAM: стерео- и depth-SLAM / Хабр" https://habr.com/ru/company/singularis/blog/279035/
+* "Deep learning combined with SLAM research status - Programmer Sought" https://programmersought.com/article/87761070085/
+
+
 == ORB SLAM3
 
 TODO:: copy from ORB-SLAM3 paper summary https://programmersought.com/article/85105331899/

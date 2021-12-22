@@ -39,16 +39,45 @@ https://vision.in.tum.de/research/vslam/lsdslam?redirect=1
 http://vision.in.tum.de/_media/research/lsdslam/pointcloud.jpg
 
 
+SLAM (с англ. одновременная локализация и картография),
+Навигация в плотных (и не очень) облаках точек, Планирование по Карте Препятствий (OccupancyMap)
+https://habr.com/ru/post/327888/ - статья с картинками
+
+Когда использовать LSD SLAM? https://habr.com/ru/company/singularis/blog/277537/
+// Если Вам необходима плотная карта местности (например, для построения карты препятствий), или окружение не содержит достаточно фич (features), то есть включает слаботекстурированные крупные объекты, и Ваша платформа предоставляет достаточные вычислительные возможности, тогда Вам подойдет LSD SLAM.
+//
+
+.LSD SLAM
+image::images/plan-54e4d.png[]
+
+
+.ORB SLAMv2
+image::images/plan-696cf.png[width=280]
+
+//
+// smoothing-and-mapping: https://github.com/ccorcos/robotics-smoothing-and-mapping/blob/master/README.md
+
+
+
 == Описание алгоритмов ORB SLAM, особенно методов ИИ, используемых в них. - 50 стр.
 
 
 
 статья по методам ии, описание текстом, смотрю сейчас
 https://programmersought.com/article/87761070085/
+//
+// ORB SLAM2 https://github.com/raulmur/ORB_SLAM2
+//
 
-ORB SLAM2
+
 === ORB SLAM3
 
 прочитать статью, сделать общий обзор
 
 ORB-SLAM3 paper summary https://programmersought.com/article/85105331899/
+
+
+разобрать https://programmersought.com/article/87761070085/
+
+
+Feature Matching https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_feature2d/py_matcher/py_matcher.html
