@@ -1,0 +1,465 @@
+@Article{MurArtal2015,
+  author    = {Raul Mur-Artal and J. M. M. Montiel and Juan D. Tardos},
+  journal   = {{IEEE} Transactions on Robotics},
+  title     = {{ORB}-{SLAM}: A Versatile and Accurate Monocular {SLAM} System},
+  year      = {2015},
+  month     = {oct},
+  number    = {5},
+  pages     = {1147--1163},
+  volume    = {31},
+  doi       = {10.1109/tro.2015.2463671},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/orb/orb-slam 2015.pdf:PDF},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@Article{MurArtal2017,
+  author    = {Raul Mur-Artal and Juan D. Tardos},
+  journal   = {{IEEE} Transactions on Robotics},
+  title     = {{ORB}-{SLAM}2: An Open-Source {SLAM} System for Monocular, Stereo, and {RGB}-D Cameras},
+  year      = {2017},
+  month     = {oct},
+  number    = {5},
+  pages     = {1255--1262},
+  volume    = {33},
+  date      = {2017-06-19},
+  day       = {19},
+  doi       = {10.1109/tro.2017.2705103},
+  eprint    = {arXiv:1610.06475v2[cs.RO]},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/orb/ORB-SLAM2 an Open-Source SLAM System for%0AMonocular, Stereo and RGB-D Cameras.pdf:PDF},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@InProceedings{Cameras,
+  author = {RGB-D Cameras and Raul ur-Artal and Juan and D. Tardos},
+  title  = {ORB SLAM 2 : an Open-Source SLAM System for Monocular, Stereo and},
+  file   = {:/home/tchikichev/git/slam-reading/pdf/orb/ORB SLAM 2 \: an Open-Source SLAM
+System for Monocular, Stereo and
+RGB-D Cameras.pdf:PDF},
+}
+
+@InProceedings{Bowman2017,
+  author    = {Bowman, Sean and Atanasov, Nikolay and Daniilidis, Kostas and Pappas, George},
+  booktitle = {2017 IEEE International Conference on Robotics and Automation (ICRA) Singapore, May 29 - June 3, 2017},
+  title     = {Probabilistic Data Association for Semantic SLAM},
+  year      = {2017},
+  publisher = {IEEE},
+  abstract  = {Traditional approaches to simultaneous localization and mapping (SLAM) rely on low-level geometric features such as points, lines, and planes. They are unable to assign semantic labels to landmarks observed in the environment. Furthermore, loop closure recognition based on low-level features is often viewpoint-dependent and subject to failure in ambiguous or repetitive environments. On the other hand, object recognition methods can infer landmark classes and scales, resulting in a small set of easily recognizable landmarks, ideal for view-independent unambiguous loop closure. In a map with several objects of the same class, however, a crucial data association problem exists. While data association and recognition are discrete problems usually solved using discrete inference, classical SLAM is a continuous optimization over metric information. In this paper, we formulate an optimization problem over sensor states and semantic landmark positions that integrates metric information, semantic information, and data associations, and decompose it into two interconnected problems: an estimation of discrete data association and landmark class probabilities, and a continuous optimization over the metric states. The estimated landmark and robot poses affect the association and class distributions, which in turn affect the robot-landmark pose optimization. The performance of our algorithm is demonstrated on indoor and outdoor datasets.},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/semantic/bowman17icra.pdf:PDF},
+  keywords  = {SLAM; Localization; Recognition},
+}
+
+@InProceedings{inproceedings,
+  author = {Rünz, Martin and Buffier, Maud and Agapito, Lourdes},
+  title  = {MaskFusion: Real-Time Recognition, Tracking and Reconstruction of Multiple Moving Objects},
+  year   = {2018},
+  month  = {10},
+  pages  = {10-20},
+  doi    = {10.1109/ISMAR.2018.00024},
+}
+
+@InProceedings{MurArtal2021,
+  author    = {Raul Mur-Artal and J. M. M. Montiel and Juan D. Tardos},
+  title     = {ORB-SLAM: A Versatile and Accurate Monocular SLAM System},
+  year      = {2021},
+  publisher = {IEEE},
+  abstract  = {IEEE Transactions on Robotics;2015;31;5;10.1109/TRO.2015.2463671},
+  file      = {:semantic/MurArtal2021 - ORB SLAM_ a Versatile and Accurate Monocular SLAM System.pdf:PDF;:MurArtal2021 - ORB SLAM_ a Versatile and Accurate Monocular SLAM System.pdf:PDF;:Labbe2015ULaval.pdf:PDF;:LabbeAURO2017.pdf:PDF},
+  keywords  = {Lifelong mapping, localization, monocular vision, recognition, simultaneous localization and mapping (SLAM)},
+}
+
+@InProceedings{Lianos,
+  author   = {Lianos, Konstantinos-Nektarios and Schönberger, Johannes and Pollefeys, Marc and Sattler, Torsten},
+  title    = {VSO: Visual Semantic Odometry},
+  abstract = {Robust data association is a core problem of visual odometry, where image-to-image correspondences provide constraints for camera pose and map estimation. Current state-of-the-art direct and indirect methods use short-term tracking to obtain continuous frame-to-frame constraints, while long-term constraints are established using loop closures. In this paper, we propose a novel visual semantic odometry (VSO) framework to enable medium-term continuous tracking of points using semantics. Our proposed framework can be easily integrated into existing direct and indirect visual odometry pipelines. Experiments on challenging real-world datasets demonstrate a significant improvement over state-of-the-art baselines in the context of autonomous driving simply by integrating our semantic constraints.},
+  file     = {:/home/tchikichev/git/slam-reading/pdf/semantic/VSO-Visual-Semantic-Odometry.pdf:PDF},
+  keywords = {visual odometry, SLAM, semantic segmentation},
+}
+
+@Article{Labbe2018,
+  author    = {Mathieu Labb{\'{e}} and Fran{\c{c}}ois Michaud},
+  journal   = {Journal of Field Robotics},
+  title     = {{RTAB}-Map as an open-source lidar and visual simultaneous localization and mapping library for large-scale and long-term online operation},
+  year      = {2018},
+  month     = {oct},
+  number    = {2},
+  pages     = {416--446},
+  volume    = {36},
+  abstract  = {Distributed as an open source library since 2013, RTAB-Map started as an appearancebased loop closure detection approach with memory management to deal with large-scale and long-term online operation. It then grew to implement Simultaneous Localization and Mapping (SLAM) on various robots and mobile platforms. As each application brings its own set of contraints on sensors, processing capabilities and locomotion, it raises the question of which SLAM approach is the most appropriate to use in terms of cost, accuracy, computation power and ease of integration. Since most of SLAM approaches are either visual or lidar-based, comparison is difficult. Therefore, we decided to extend RTAB-Map to support both visual and lidar SLAM, providing in one package a tool allowing users to implement and compare a variety of 3D and 2D solutions for a wide range of applications with different robots and sensors. This paper presents this extended version of RTAB-Map and its use in comparing, both quantitatively and qualitatively, a large selection of popular real-world datasets (e.g., KITTI, EuRoC, TUM RGB-D, MIT Stata Center on PR2 robot), outlining strengths and limitations of visual and lidar SLAM configurations from a practical perspective for autonomous navigation applications.},
+  doi       = {10.1002/rob.21831},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/rtab/Labbe18JFR_preprint.pdf:PDF},
+  publisher = {Wiley},
+}
+
+@InProceedings{Labbe,
+  author = {Labbé, Mathieu},
+  title  = {Simultaneous Localization and Mapping (SLAM) with RTAB-Map},
+  file   = {:/home/tchikichev/git/slam-reading/pdf/rtab/Labbe2015ULaval.pdf:PDF},
+}
+
+@Article{Labbe2017,
+  author    = {Mathieu Labb{\'{e}} and Fran{\c{c}}ois Michaud},
+  journal   = {Autonomous Robots},
+  title     = {Long-term online multi-session graph-based {SPLAM} with memory management},
+  year      = {2017},
+  month     = {nov},
+  number    = {6},
+  pages     = {1133--1150},
+  volume    = {42},
+  abstract  = {For long-term simultaneous planning, localization and mapping (SPLAM), a robot should be able to continuously update its map according to the dynamic changes of the environment and the new areas explored. With limited onboard computation capabilities, a robot should also be able to limit the size of the map used for online localization and mapping. This paper addresses these challenges using a memory management mechanism, which identifies locations that should remain in a Working Memory (WM) for online processing from locations that should be transferred to a Long-Term Memory (LTM). When revisiting previously mapped areas that are in LTM, the mechanism can retrieve these locations and place them back in WM for online SPLAM. The approach is tested on a robot equipped with a short-range laser rangefinder and a RGB-D camera, patrolling autonomously 10.5 km in an indoor environment over 11 sessions while having encountered 139 people.},
+  doi       = {10.1007/s10514-017-9682-5},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/rtab/LabbeAURO2017.pdf:PDF},
+  keywords  = {path planning, pose graph, multi-session, loop closure detection},
+  publisher = {Springer Science and Business Media {LLC}},
+}
+
+@Article{MurArtal2017b,
+  author    = {Raul Mur-Artal and Juan D. Tardos},
+  journal   = {{IEEE} Robotics and Automation Letters},
+  title     = {Visual-Inertial Monocular {SLAM} With Map Reuse},
+  year      = {2017},
+  month     = {apr},
+  number    = {2},
+  pages     = {796--803},
+  volume    = {2},
+  date      = {2017-01-17},
+  day       = {17},
+  doi       = {10.1109/lra.2017.2653359},
+  eprint    = {arXiv:1610.05949v2[cs.RO]},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/orb/Visual-Inertial Monocular SLAM with Map Reuse.pdf:PDF},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@InProceedings{Campos2020,
+  author = {Campos, Irene},
+  title  = {DOT: Dynamic Object Tracking for Visual SLAM},
+  year   = {2020},
+  month  = {7},
+  date   = {2020-07},
+  file   = {:/home/tchikichev/git/slam-reading/pdf/DOT\: Dynamic Object Tracking for Visual SLAM.pdf:PDF},
+}
+
+@Article{Servieres2021a,
+  author    = {Myriam Servi{\`{e}}res and Val{\'{e}}rie Renaudin and Alexis Dupuis and Nicolas Antigny},
+  journal   = {Journal of Sensors},
+  title     = {Visual and Visual-Inertial {SLAM}: State of the Art, Classification, and Experimental Benchmarking},
+  year      = {2021},
+  month     = {feb},
+  pages     = {1--26},
+  volume    = {2021},
+  abstract  = {Simultaneous Localization and Mapping is now widely adopted by many applications, and researchers have produced very dense literature on this topic. With the advent of smart devices, embedding cameras, inertial measurement units, visual SLAM (vSLAM), and visual-inertial SLAM (viSLAM) are enabling novel general public applications. In this context, this paper conducts a review of popular SLAM approaches with a focus on vSLAM/viSLAM, both at fundamental and experimental levels. It starts with a structured overview of existing vSLAM and viSLAM designs and continues with a new classification of a dozen main state-ofthe-art methods. A chronological survey of viSLAM's development highlights the historical milestones and presents more recent methods into a classification. Finally, the performance of vSLAM is experimentally assessed for the use case of pedestrian pose estimation with a handheld device in urban environments. The performance of five open-source methods Vins-Mono, ROVIO, ORB-SLAM2, DSO, and LSD-SLAM is compared using the EuRoC MAV dataset and a new visual-inertial dataset corresponding to urban pedestrian navigation. A detailed analysis of the computation results identifies the strengths and weaknesses for each method. Globally, ORB-SLAM2 appears to be the most promising algorithm to address the challenges of urban pedestrian navigation, tested with two datasets.},
+  date      = {2021-02-25},
+  day       = {25},
+  doi       = {10.1155/2021/2054828},
+  editor    = {Stelios M. Potirakis},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/2054828.pdf:PDF},
+  publisher = {Hindawi Limited},
+}
+
+@InProceedings{Labbe2500,
+  author   = {Mathieu Labbe and François Michaud},
+  title    = {Online Global Loop Closure Detection for Large-Scale Multi-Session Graph-Based SLAM},
+  year     = {2500},
+  abstract = {For large-scale and long-term simultaneous lo- nodes” are used to keep transformation information between
+calization and mapping (SLAM), a robot has to deal with the maps. A similar approach is also used with multi-robot
+unknown initial positioning caused by either the kidnapped mapping [6]: transformations between maps are computed
+robot problem or multi-session mapping. This paper addresses
+these problems by tying the SLAM system with a global loop when a robot sees the other or when a landmark is seen by
+closure detection approach, which intrinsically handles these both robots in their respective maps.
+situations. However, online processing for global loop closure Global loop closure detection approaches, by being inde-
+detection approaches is generally influenced by the size of the pendent of the robot’s estimated position [7], can intrinsically
+environment. The proposed graph-based SLAM system uses solve the problem of determining when a robot comes back
+a memory management approach that only consider portions
+of the map to satisfy online processing requirements. The to a previous map using a different referential [8]. Popular
+approach is tested and demonstrated using five indoor mapping global loop detection approaches are appearance-based [9]–
+sessions of a building using a robot equipped with a laser [12], exploiting the distinctiveness of images. The underlying
+rangefinder and a Kinect. idea behind these approaches is that loop closure detection},
+  doi      = {2661-2666.10.1109/IROS.2014.6942926},
+  file     = {:/home/tchikichev/git/slam-reading/pdf/Online Global Loop Closure Detection for Large-Scale Multi-Session
+Graph-Based SLAM.pdf:PDF},
+}
+
+@InProceedings{10.1109/TRO.2021.30756442007,
+  author    = {DOI: 10.1109/TRO.2021.3075644},
+  title     = {This paper has been accepted for publication in IEEE Transactions and Robotics},
+  year      = {2007},
+  publisher = {IEEE},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/orb/ORB-SLAM3\: An Accurate Open-Source Library
+for Visual, Visual-Inertial and Multi-Map SLAM.pdf:PDF},
+}
+
+@InProceedings{Sun2015,
+  author = {Sun, Hao},
+  title  = {Use of Consumer-grade Depth Cameras in Mobile Robot Navigation},
+  year   = {2015},
+  month  = {9},
+  date   = {2015-09},
+  file   = {:/home/tchikichev/git/slam-reading/pdf/other/thesis-correction-HaoSun-MPhil-1019.pdf:PDF},
+}
+
+@InProceedings{Elvira2019,
+  author    = {Elvira, Richard and Tardós, Juan and Montiel, J},
+  booktitle = {This paper has been accepted in 2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  title     = {ORBSLAM-Atlas: a robust and accurate multi-map system},
+  year      = {2019},
+  month     = {8},
+  publisher = {IEEE},
+  abstract  = {We propose ORBSLAM-Atlas, a system able to handle an unlimited number of disconnected sub-maps, that includes a robust map merging algorithm able to detect submaps with common regions and seamlessly fuse them. The outstanding robustness and accuracy of ORBSLAM are due to its ability to detect wide-baseline matches between keyframes, and to exploit them by means of non-linear optimization, however it only can handle a single map. ORBSLAM-Atlas brings the wide-baseline matching detection and exploitation to the multiple map arena. The result is a SLAM system significantly more general and robust, able to perform multisession mapping. If tracking is lost during exploration, instead of freezing the map, a new sub-map is launched, and it can be fused with the previous map when common parts are visited. Our criteria to declare the camera lost contrast with previous approaches that simply count the number of tracked points, we propose to discard also inaccurately estimated camera poses due to bad geometrical conditioning. As a result, the map is split into more accurate sub-maps, that are eventually merged in a more accurate global map, thanks to the multi-mapping capabilities. We provide extensive experimental validation in the EuRoC datasets, where ORBSLAM-Atlas obtains accurate monocular and stereo results in the difficult sequences where ORBSLAM failed. We also build global maps after multiple sessions in the same room, obtaining the best results to date, between 2 and 3 times more accurate than competing multi-map approaches. We also show the robustness and capability of our system to deal with dynamic scenes, quantitatively in the EuRoC datasets and qualitatively in a densely populated corridor where camera occlusions and tracking losses are frequent.},
+  date      = {2019-08-30},
+  day       = {30},
+  eprint    = {arXiv:1908.11585v1[cs.CV]},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/orb/ORBSLAM-Atlas\: a robust and accurate multi-map system.pdf:PDF},
+}
+
+@InProceedings{Article1980,
+  author = {Research Article and and VisualVisual-Inertial SLAM: State of the Art and Classification and Experimental Benchmarking},
+  title  = {Visual and Visual-Inertial SLAM: State of the Art, Classification,and Experimental Benchmarking},
+  year   = {1980},
+  doi    = {.org/10.1155/2021/2054828},
+  file   = {:/home/tchikichev/git/slam-reading/pdf/Visual and Visual-Inertial SLAM\: State of the Art, Classification,
+and Experimental Benchmarking.pdf:PDF},
+}
+
+@InProceedings{Sanfourche2012a,
+  author = {M. Sanfourche and J. Delaune and G. Le Besnerais and H. de Plinval and Perception for UAV and J. Israel and Ph. Cornic and A. Treil and Y. Watanabe and Vision-Based Navigation and A. Plyer and (Onera) and Environment and Modeling and E-mail: martial.sanfourche@onera.fr},
+  title  = {Mastering Complexity},
+  year   = {2012},
+  file   = {:/home/tchikichev/git/slam-reading/pdf/other/Perception for UAV\:
+Vision-Based Navigation
+and Environment Modeling.pdf:PDF},
+  groups = {depth, nn semantic},
+}
+
+@InProceedings{Tardos2015,
+  author = {Tardós, Juan and Artal, Raúl and Montiel, José},
+  title  = {ORB-SLAM: a Real-Time Accurate Monocular SLAM System},
+  year   = {2015},
+  file   = {:/home/tchikichev/git/slam-reading/pdf/orb/orb-slam-a-real-time-accurate-monocular-slam-system.pdf:PDF},
+}
+
+@InProceedings{SinghChaplot2020,
+  author   = {Singh Chaplot, Devendra and Gandhi, Dhiraj and Gupta, Saurabh and Gupta, Abhinav and Salakhutdinov, Ruslan},
+  title    = {LEARNING TO EXPLORE USING ACTIVE NEURAL SLAM},
+  year     = {2020},
+  abstract = {This work presents a modular and hierarchical approach to learn policies for exploring 3D environments, called 'Active Neural SLAM'. Our approach leverages the strengths of both classical and learning-based methods, by using analytical path planners with learned SLAM module, and global and local policies. The use of learning provides flexibility with respect to input modalities (in the SLAM module), leverages structural regularities of the world (in global policies), and provides robustness to errors in state estimation (in local policies). Such use of learning within each module retains its benefits, while at the same time, hierarchical decomposition and modular training allow us to sidestep the high sample complexities associated with training end-to-end policies. Our experiments in visually and physically realistic simulated 3D environments demonstrate the effectiveness of our approach over past learning and geometry-based approaches. The proposed model can also be easily transferred to the PointGoal task and was the winning entry of the CVPR 2019 Habitat PointGoal Navigation Challenge.},
+  file     = {:/home/tchikichev/git/slam-reading/pdf/nn/learning_to_explore_using_acti.pdf:PDF},
+}
+
+@InProceedings{Li2021,
+  author    = {Hongyang Li and Chengjun Tian and Lequan Wang and Hongfu Lv},
+  booktitle = {2021 International Conference on Artificial Intelligence and Electromechanical Automation ({AIEA})},
+  title     = {A loop closure detection method based on semantic segmentation and convolutional neural network},
+  year      = {2021},
+  month     = {may},
+  publisher = {{IEEE}},
+  abstract  = {2021 International Conference on Artificial Intelligence and Electromechanical Automation (AIEA);2021; ; ;10.1109/AIEA53260.2021.00063},
+  doi       = {10.1109/aiea53260.2021.00063},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/nn/A_loop_closure_detection_method_based_on_semantic_segmentation_and_convolutional_neural_network.pdf:PDF},
+  groups    = {nn semantic},
+  keywords  = {Simultaneous Localization and Mapping (SLAM), closed loop detection, Convolutional Neural Network (CNN), semantic segmentation},
+}
+
+@InProceedings{Zeng2018,
+  author    = {Xuan Zeng and Yewen Li and Ziqian Chen and Liping Zhu},
+  booktitle = {2018 {IEEE} International Conference on Computational Science and Engineering ({CSE})},
+  title     = {A Hybrid 2D and 3D Convolution Neural Network for Stereo Matching},
+  year      = {2018},
+  month     = {oct},
+  publisher = {{IEEE}},
+  abstract  = {Stereo matching plays an important role in computer vision and SLAM (simultaneous localization and mapping). In this paper, we propose a novel hybrid 2D and 3D convolution neural network for stereo matching. Unlike existing similarity metric based stereo matching methods which need extra postprocessing to finish the matching pipeline, the proposed approach is an end-to-end stereo matching method and it needs much less time for an image pair. Unlike a lot of cost volume and disparity based stereo matching methods which are too complicated to run on performance-constrained devices, the proposed method is much more simple and can run on the real-time sweeping robot that we build. Experimental results on two widely used stereo matching datasets verified the effectiveness of the proposed approach, meanwhile, our real-time SLAM system-the sweeping robot demonstrates that our method can apply to real-time applications.},
+  doi       = {10.1109/cse.2018.00028},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/nn/A_Hybrid_2D_and_3D_Convolution_Neural_Network_for_Stereo_Matching.pdf:PDF},
+  groups    = {nn semantic},
+  keywords  = {stereo matching, 3D convolution, SLAM},
+}
+
+@InProceedings{Luiz7281,
+  author    = {Luiz, Ricardo and Horita and Wolf, Denis and Grassi, Valdir},
+  title     = {Effective Deep Reinforcement Learning Setups for Multiple Goals on Visual Navigation},
+  year      = {7281},
+  publisher = {IEEE},
+  abstract  = {Deep Reinforcement Learning (DRL) represents an interesting class of algorithms, since its objective is to learn a behavioral policy through interaction with the environment, leveraging the function approximation properties of neural networks. Nonetheless, for episodic problems, it is usually modeled to deal with a unique goal. In this sense, some works showed that it is possible to learn multiple goals when using a Universal Value Function Approximator (UVFA), i.e. a method to learn a universal policy by taking information about the current state of the agent and the goal. Their results are promising but show that there is still space for new contributions regarding the integration of the goal information into the model. For this reason, we propose using the Hadamard product or the Gated-Attention module in the UVFA architecture for visual-based problems. Also, we propose a hybrid exploration strategy based on the-greedy and the categorical probability distribution, namely-categorical. By systematically comparing different architectures of UVFA for different exploration strategies, and applying or not the Trust Region Policy Optimization (TRPO), we demonstrate through experiments that, for visual topologic navigation, combining visual information of the current and goal states through Hadamard product or Gated-Attention module allows the network learning near-optimal navigation policies. Also, we empirically show that the-categorical policy helps to avoid local minimums during the training, which facilitates the convergence to better results.},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/nn/Effective_Deep_Reinforcement_Learning_Setups_for_Multiple_Goals_on_Visual_Navigation.pdf:PDF},
+  groups    = {nn semantic},
+  keywords  = {reinforcement learning, goal-driven navigation, visual navigation},
+}
+
+@InProceedings{Li2018a,
+  author   = {Li, Wenbin and Mccormac, John and Clark, Ronald},
+  title    = {InteriorNet: Mega-scale Multi-sensor Photo-realistic Indoor Scenes Dataset},
+  year     = {2018},
+  abstract = {Datasets have gained an enormous amount of popularity in the computer vision community, from training and evaluation of Deep Learning-based methods to benchmarking Simultaneous Localization and Mapping (SLAM). Without a doubt, synthetic imagery bears a vast potential due to scalability in terms of amounts of data obtainable without tedious manual ground truth annotations or measurements. Here, we present a dataset with the aim of providing a higher degree of photo-realism, larger scale, more variability as well as serving a wider range of purposes compared to existing datasets. Our dataset leverages the availability of millions of professional interior designs and millions of production-level furniture and object assets-all coming with fine geometric details and high-resolution texture. We render high-resolution and high frame-rate video sequences following realistic trajectories while supporting various camera types as well as providing inertial measurements. Together with the release of the dataset, we will make executable program of our interactive simulator software as well as our renderer available at https://interiornetdataset.github.io. To showcase the usability and uniqueness of our dataset, we show benchmarking results of both sparse and dense SLAM algorithms.},
+  file     = {:/home/tchikichev/git/slam-reading/pdf/nn/interiornet_paper.pdf:PDF},
+  groups   = {nn semantic},
+}
+
+@InProceedings{Dai2021,
+  author    = {Dai, Kun and Cheng, Lan and Yang, Rui and Yan, Gaowei},
+  booktitle = {Proceedings of the 40th Chinese Control Conference},
+  title     = {Loop Closure Detection Using KPCA and CNN for Visual SLAM},
+  year      = {2021},
+  publisher = {Technical Committee on Control Theory, Chinese Association of Automation},
+  abstract  = {Loop closure detection is often applied to eliminate accumulative track error and mapping error in visual simultaneous localization and mapping (SLAM). Deep convolution neural network (CNN) integrating principal component analysis (PCA) has been recently proposed to implement loop closure detection and to reduce the dimension of features extracted by CNN. However, the combined methods encounter low detection accuracy. To address this problem, Resnet34 pre-trained model is first used to extract features. Then, kernel PCA(KPCA) is applied on the extracted features to reduce the dimension of the features. In the similarity calculation link, restriction range strategy is used to solve the mismatch problem caused by the large similarity of adjacent frames, so as to obtain more accurate recognition results. Finally, the proposed algorithm is analyzed on two open data sets. The experiments show that the proposed algorithm outperforms the traditional CNN and PCA combined method with regard to the accuracy of feature vector matching.},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/nn/Loop_Closure_Detection_Using_KPCA_and_CNN_for_Visual_SLAM.pdf:PDF},
+  groups    = {nn semantic},
+  keywords  = {Loop closure detection, Visual SLAM, Deep learning, KPCA},
+}
+
+@InProceedings{Tang3743a,
+  author   = {Tang, Tianqi and Yu, Xin and Dong, Xuanyi and Yang, Yi},
+  title    = {Auto-Navigator: Decoupled Neural Architecture Search for Visual Navigation},
+  year     = {3743},
+  abstract = {Existing visual navigation approaches leverage classification neural networks to extract global features from visual data for navigation. However, these networks are not originally designed for navigation tasks. Thus, the neural architectures might not be suitable to capture scene contents. Fortunately, neural architecture search (NAS) brings a hope to solve this problem. In this paper, we propose an Auto-Navigator to customize a specialized network for visual navigation. However, as navigation tasks mainly rely on reinforcement learning (RL) rewards in training, such weak supervision is insufficiently indicative for NAS to optimize visual perception network. Thus, we introduce imitation learning (IL) with optimal paths to optimize navigation policies while selecting an optimal architecture. As Auto-Navigator can obtain a direct supervision in every step, such guidance greatly facilitates architecture search. In particular, we initialize our Auto-Navigator with a learnable distribution over the search space of visual perception architecture, and then optimize the distribution with IL supervision. Afterwards, we employ an RL reward function to fine-tune our Auto-Navigator to improve the generalization ability of our model. Extensive experiments demonstrate that our Auto-Navigator outperforms baseline methods on Gibson and Matterport3D without significantly increasing network parameters.},
+  file     = {:/home/tchikichev/git/slam-reading/pdf/nn/Tang_Auto-Navigator_Decoupled_Neural_Architecture_Search_for_Visual_Navigation_WACV_2021_paper.pdf:PDF},
+  groups   = {nn semantic},
+}
+
+@InProceedings{Garcia2021,
+  author    = {Thaisa Aline Correia Garcia and Mariana Batista Campos and Leticia Ferrari Castanheiro and Antonio Maria and Garcia Tommaselli},
+  booktitle = {2021 {IEEE} International Geoscience and Remote Sensing Symposium {IGARSS}},
+  title     = {A Proposal to Integrate {ORB}-Slam Fisheye and Convolutional Neural Networks for Outdoor Terrestrial Mobile Mapping},
+  year      = {2021},
+  month     = {jul},
+  publisher = {{IEEE}},
+  abstract  = {SLAM methods, such as ORB-SLAM, can build a map of an unknown environment (sparse point cloud) with optical images. The sensor motion provides image sequences over which keypoints are extracted and matched, enabling the simultaneous computation of sensor locations and 3D coordinates of points. In the last years, enormous progress has been done to solve the SLAM problem, especially focusing on computational efficiency and accurate sensor trajectory estimation. However, the auto-detection of incorrect or undesired match points (outliers) to support the auto-decision of include or not an image observation in the estimation process is still an open problem. ORB-SLAM fisheye is applied in this study to estimate sensor trajectory based on dual-fisheye images acquired with Ricoh Theta S omnidirectional camera in a terrestrial mobile mapping system carried by a backpack. This preliminary study demonstrated the possible effects of image observation outliers in the sensor trajectory estimation (planimetric and altimetric accuracy of 0.381m and 0.26m, respectively). A proposal to combine semantic segmentation using CNN in the photogrammetric process workflow to cope with this problem and detect potential image observation outlier areas is presented.},
+  doi       = {10.1109/igarss47720.2021.9554752},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/nn/A_Proposal_to_Integrate_ORB-Slam_Fisheye_and_Convolutional_Neural_Networks_for_Outdoor_Terrestrial_Mobile_Mapping.pdf:PDF},
+  groups    = {nn semantic},
+  keywords  = {fisheye images, image matching, Convolutional Neural Networks, ORB-SLAM fisheye},
+}
+
+@InProceedings{Makarov2017,
+  author    = {Ilya Makarov and Vladimir Aliev and Olga Gerasimova and Pavel Polyakov},
+  booktitle = {2017 {IEEE} International Symposium on Mixed and Augmented Reality ({ISMAR}-Adjunct)},
+  title     = {[{POSTER}] Depth Map Interpolation Using Perceptual Loss},
+  year      = {2017},
+  month     = {oct},
+  publisher = {{IEEE}},
+  abstract  = {In this paper, we discuss a semi-dense depth map interpolation method based on convolutional neural network. We propose a compact neural network architecture with loss function defined as Euclidean distance in the feature space of VGG-16 neural network used for deep visual recognition. The suggested solution shows state-of-art performance on synthetic and real datasets. Together with LSD-SLAM, the method could be used to provide a dense depth map for interaction purposes, such as creating a first person game in AR/MR or perception module for autonomous vehicle.},
+  doi       = {10.1109/ismar-adjunct.2017.39},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/nn/POSTER_Depth_Map_Interpolation_Using_Perceptual_Loss.pdf:PDF},
+  groups    = {nn semantic},
+  keywords  = {Example of sample interpolation from NYUDepthv2 set. Left to right: intensity image, input depth map, output depth map, ground truth Depth Map, Semi-Dense Depth Map Interpolation, Deep Convolutional Neural Networks, Mixed Reality, FPS K.10.2 [Human-centered computing]: HCI-Mixed/augmented reality; K.11.3 [Computing methodologies]: AI-Computer vision problems: Reconstruction},
+}
+
+@InProceedings{McCormac1609,
+  author   = {John McCormac and Ankur Handa and Andrew Davison and Stefan Leutenegger and Dyson Robotics Lab and Imperial College London},
+  title    = {SemanticFusion: Dense 3D Semantic Mapping with Convolutional Neural Networks},
+  year     = {1609},
+  abstract = {Ever more robust, accurate and detailed mapping
+using visual sensing has proven to be an enabling factor for
+mobile robots across a wide variety of applications. For the next
+level of robot intelligence and intuitive user interaction, maps
+need extend beyond geometry and appearence — they need
+to contain semantics. We address this challenge by combining
+Convolutional Neural Networks (CNNs) and a state of the art
+dense Simultaneous Localisation and Mapping (SLAM) system,
+ElasticFusion, which provides long-term dense correspondence
+between frames of indoor RGB-D video even during loopy
+scanning trajectories. These correspondences allow the CNN’s Fig. 1: The output of our system: On the left, a dense surfel
+semantic predictions from multiple view points to be proba- based reconstruction from a video sequence in the NYUv2
+bilistically fused into a map. This not only produces a useful
+semantic 3D map, but we also show on the NYUv2 dataset that test set. On the right the same map, semantically annotated
+fusing multiple predictions leads to an improvement even in the with the classes given in the legend below.
+2D semantic labelling over baseline single frame predictions. We
+also show that for a smaller reconstruction dataset with larger
+variation in prediction viewpoint, the improvement over single
+frame segmentation increases. Our system is efficient enough surfels remain persistently associated with real-world entities
+to allow real-time interactive use at frame-rates of ≈25Hz. and this enables long-term fusion of per-frame semantic},
+  file     = {:/home/tchikichev/git/slam-reading/pdf/nn/SemanticFusion\: Dense 3D Semantic Mapping with Convolutional
+Neural Networks.pdf:PDF},
+  groups   = {nn semantic},
+}
+
+@InProceedings{Li1807,
+  author   = {Li, Peiliang and Qin, Tong and Shen, Shaojie and Kong, Hong},
+  title    = {Stereo Vision-based Semantic 3D Object and Ego-motion Tracking for Autonomous Driving},
+  year     = {1807},
+  abstract = {We propose a stereo vision-based approach for tracking the camera ego-motion and 3D semantic objects in dynamic autonomous driving scenarios. Instead of directly regressing the 3D bounding box using end-to-end approaches, we propose to use the easy-to-labeled 2D detection and discrete viewpoint classification together with a lightweight semantic inference method to obtain rough 3D object measurements. Based on the object-aware-aided camera pose tracking which is robust in dynamic environments, in combination with our novel dynamic object bundle adjustment (BA) approach to fuse temporal sparse feature correspondences and the semantic 3D measurement model, we obtain 3D object pose, velocity and anchored dynamic point cloud estimation with instance accuracy and temporal consistency. The performance of our proposed method is demonstrated in diverse scenarios. Both the ego-motion estimation and object localization are compared with the state-of-of-theart solutions.},
+  file     = {:/home/tchikichev/git/slam-reading/pdf/nn/Stereo-Vision-based-Semantic-3D-Object-and-Ego-motion-Tracking-for-Autonomous-Driving.pdf:PDF},
+  groups   = {nn semantic},
+  keywords = {Semantic SLAM, 3D Object Localization, Visual Odometry},
+}
+
+@InProceedings{Zhang2017,
+  author    = {Zhang, Xiwu and Su, Yan and Zhu, Xinhua},
+  booktitle = {Proceedings of the 23rd International Conference on Automation & Computing, University of Huddersfield, Huddersfield, UK, 7-8 September 2017},
+  title     = {Loop Closure Detection for Visual SLAM Systems Using Convolutional Neural Network},
+  year      = {2017},
+  month     = {9},
+  publisher = {IEEE},
+  abstract  = {This paper is concerned of the loop closure detection problem, which is one of the most critical parts for visual Simultaneous Localization and Mapping (SLAM) systems. Most of state-of-the-art methods use hand-crafted features and bagof-visual-words (BoVW) to tackle this problem. Recent development in deep learning indicates that CNN features significantly outperform hand-crafted features for image representation. This advanced technology has not been fully exploited in robotics, especially in visual SLAM systems. We propose a loop closure detection method based on convolutional neural networks (CNNs). Images are fed into a pre-trained CNN model to extract features. We pre-process CNN features instead of using them directly as most of the presented approaches did before they are used to detect loops. The workflow of extracting CNN features, processing data, computing similarity score and detecting loops is presented. Finally the performance of proposed method is evaluated on several open datasets by comparing it with Fab-Map using precision-recall metric.},
+  date      = {2017-09-08},
+  day       = {8},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/nn/Loop_closure_detection_for_visual_SLAM_systems_using_convolutional_neural_network.pdf:PDF},
+  groups    = {nn semantic},
+  keywords  = {SLAM, Loop Closure Detection, Convolutional Neural Network, Deep Learning},
+}
+
+@InProceedings{Dai2010,
+  author    = {Dai, Xuefeng and Zhao, Lina and Zhang, Hui},
+  booktitle = {2010 Seventh International Conference on Fuzzy Systems and Knowledge Discovery (FSKD 2010)},
+  title     = {Local Map Matching Based on Fuzzy Neural Networks for Hierarchical SLAM},
+  year      = {2010},
+  publisher = {IEEE},
+  abstract  = {In order to resolve the computational complexity for local map matching of hierarchical simultaneous localization and mapping (SLAM), a novel self-organizing fuzzy neural networks (SOFNN) based approach was proposed in this paper. The matching component for local maps in the hierarchical SLAM is realized by an SOFNN. A subset of signature elements included in a local map was chosen by a clustering algorithm, then was inputted to the SOFNN. The criteria to complete a local map, and the structure learning and parameter learning algorithms for our SOFNN were discussed.},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/nn/Local_map_matching_based_on_fuzzy_neural_networks_for_hierarchical_SLAM.pdf:PDF},
+  groups    = {nn semantic},
+  keywords  = {data association, simultaneous localization and mapping, SOFNN, neural networks},
+}
+
+@InProceedings{Li2018b,
+  author    = {Linhui Li and Zhijie Liu and Umit Ozginer and Jing Lian and Yafu Zhou and Yibing Zhao},
+  title     = {Dense 3D Semantic SLAM of traffic environment based on stereo vision},
+  year      = {2018},
+  publisher = {IEEE},
+  abstract  = {To solve the intelligent vehicles' problems of 'where am I?' and 'what is around me?', a dense 3D sematic Simultaneous Localization and Mapping (SLAM) system is proposed to evaluate the pose of the intelligent vehicles and build the dense 3D semantic map. We address these challenges by combining a state of art Stereo-ORB-SLAM system and Convolutional Neural Networks. Firstly, we build a dense 3D point cloud map by using a four thread Stereo-ORB-SLAM system. Subsequently, a fully convolutional neural network architecture which uses RGB-D image as input is used to obtain pixel-wise segmentation. Finally, we fuse the geometric information and semantic information to get the semantic map. We test our method on the KITTI dataset and our dataset made with the Fpgalena stereo camera. Results indicate the system was effective in the real-time building of a semantic map, the speed of the entire system is about 10Hz, and the loop closing function can eliminate most of the drifting errors.},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/nn/Dense_3D_Semantic_SLAM_of_traffic_environment_based_on_stereo_vision.pdf:PDF},
+  groups    = {nn semantic},
+  keywords  = {Semantic SLAM, convolutional neural network, stereo vision},
+}
+
+@Article{Li2021a,
+  author    = {Ruihao Li and Sen Wang and Dongbing Gu},
+  journal   = {{IEEE} Transactions on Industrial Electronics},
+  title     = {{DeepSLAM}: A Robust Monocular {SLAM} System With Unsupervised Deep Learning},
+  year      = {2021},
+  month     = {apr},
+  number    = {4},
+  pages     = {3577--3587},
+  volume    = {68},
+  abstract  = {In this article, we propose DeepSLAM, a novel unsupervised deep learning based visual simultaneous localization and mapping (SLAM) system. The DeepSLAM training is fully unsupervised since it only requires stereo imagery instead of annotating ground-truth poses. Its testing takes a monocular image sequence as the input. Therefore, it is a monocular SLAM paradigm. DeepSLAM consists of several essential components, including Mapping-Net, Tracking-Net, Loop-Net, and a graph optimization unit. Specifically, the Mapping-Net is an encoder and decoder architecture for describing the 3-D structure of environment, whereas the Tracking-Net is a recurrent convolutional neural network architecture for capturing the camera motion. The Loop-Net is a pretrained binary classifier for detecting loop closures. DeepSLAM can simultaneously generate pose estimate, depth map, and outlier rejection mask. In this article, we evaluate its performance on various datasets, and find that DeepSLAM achieves good performance in terms of pose estimation accuracy, and is robust in some challenging scenes.},
+  doi       = {10.1109/tie.2020.2982096},
+  file      = {:/home/tchikichev/git/slam-reading/pdf/nn/DeepSLAM_A_Robust_Monocular_SLAM_System_With_Unsupervised_Deep_Learning.pdf:PDF},
+  groups    = {nn semantic},
+  keywords  = {Depth estimation, machine learning, recurrent convolutional neural network (RCNN), simultaneous localization and mapping (SLAM), unsupervised deep learning (DL)},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@InProceedings{Xiang1703,
+  author   = {Yu Xiang and Dieter Fox and Paul G. Allen and School of Computer and Science and Engineering},
+  title    = {DA-RNN: Semantic Mapping with Data Associated Recurrent Neural Networks},
+  year     = {1703},
+  abstract = {3D scene understanding is important for robots to Recurrent Neural Network},
+  file     = {:/home/tchikichev/git/slam-reading/pdf/nn/DA-RNN\: Semantic Mapping with Data Associated
+Recurrent Neural Networks.pdf:PDF},
+  groups   = {nn semantic},
+}
+
+@InProceedings{SinghChaplot3416,
+  author   = {Singh Chaplot, Devendra and Salakhutdinov, Ruslan and Gupta, Abhinav and Gupta, Saurabh},
+  title    = {Neural Topological SLAM for Visual Navigation},
+  year     = {3416},
+  abstract = {This paper studies the problem of image-goal navigation which involves navigating to the location indicated by a goal image in a novel previously unseen environment. To tackle this problem, we design topological representations for space that effectively leverage semantics and afford approximate geometric reasoning. At the heart of our representations are nodes with associated semantic features, that are interconnected using coarse geometric information. We describe supervised learning-based algorithms that can build, maintain and use such representations under noisy actuation. Experimental study in visually and physically realistic simulation suggests that our method builds effective representations that capture structural regularities and efficiently solve long-horizon navigation problems. We observe a relative improvement of more than 50% over existing methods that study this task.},
+  file     = {:/home/tchikichev/git/slam-reading/pdf/nn/CVPR20_Neural_Topological_SLAM.pdf:PDF},
+  groups   = {nn semantic},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+@Comment{jabref-meta: grouping:
+0 AllEntriesGroup:;
+1 StaticGroup:orb\;0\;1\;0x8a8a8aff\;\;\;;
+1 StaticGroup:slam\;0\;1\;0x8a8a8aff\;\;\;;
+1 StaticGroup:nn semantic\;0\;1\;0x8a8a8aff\;\;\;;
+1 StaticGroup:depth\;0\;0\;0x8a8a8aff\;\;\;;
+}
