@@ -30,59 +30,81 @@
 . результаты, вывод
 
 
-== ORB SLAM
+В это документе представлен алгоритм ORB-SLAM, функциональная монокулярная система SLAM, работающая в реальном времени в малых и больших помещениях и на открытом воздухе. Система устойчива к серьезным помехам от движения, позволяет закрывать и перемещать широкий базовый цикл, а также включает в себя полную автоматическую инициализацию. Основываясь на превосходных алгоритмах последних лет, мы разработали с нуля новую систему, которая использует одни и те же функции для всех задач SLAM: отслеживание, отображение, перемещение и замыкание цикла. Стратегия выживания наиболее приспособленной, которая выбирает точки и ключевые кадры реконструкции, приводит к превосходной надежности и создает компактную и отслеживаемую карту, которая увеличивается только при изменении содержимого сцены, что позволяет работать в течение всей жизни. Мы представляем исчерпывающую оценку в 27 последовательностях из самых популярных наборов данных. ORB-SLAM обеспечивает беспрецедентную производительность по сравнению с другими современными монокулярными подходами SLAM. В интересах сообщества мы публикуем исходный код.
+
+
+Одной из основных задач связанных с проблемой навигации является построение локальной карты. Данная задача как правило решается алгоритмами SLAM - одновременной локализации и навигации.
+
+Среди современных алгоритмов SLAM можно выбрать несколько основных методов которые будут решать задачу в выбранном контксте максимали эффективно.
+
+Выбор алгоритмов осуществляется на основе сравнения алгоритмов для опоределенной цели использования. Одним из наиболее надежных, проверенных и развитых алгоритмов является ORB-SLAM. Существующие аналоги будут незначитетельно отличаться по производительности, сам алгоритм должен удовлетворять всем общепринятым критериям, 
+возможная интеграция позволяет без значительных усилий заменить элементы  данного алгоритма.
+// заменить элементы и блоки данного алгоритма на соответст.
+
+Подробнее о свойствах и работе самого алгоритма ORB-SLAM далее.
 
 
 
+== Вступление
+
+Алгоритм ORB-SLAM позволяет осуществлять одновременную локализацию и навигацию, облодает рядом преимуществ перед другими решениями SLAM, интегрирован во множестве решений и проверен историей использования.
+
+Более поздние научные работы рассматривают возможную интеграцию данного метода и его аналогов с нейросетевыми системами, с целью улучшения отдельных частей работы алгоритма.
 
 
-read from paper, translate, correct 
-https://www.arxiv-vanity.com/papers/1502.00956/
+Документ представлен в следующем порядке:
 
-include::orb-slam-supporting.adoc[tag=Bundle_Adjustment]
+* разбор основных методов и задач в области применения алгоритмов SLAM
+* обзор работы алгоритма ORB-SLAM, его ключевые элементы
+* подробный разбор отдельных ключевых блоков алгоритма
+
+Разбор алгоритма ведется в историческом порядке разработки системы, от первой версии алгоритма к последней ORB-SLAM3.
+
+//  по типу применения, типам источника данных, алгоритмической сложности можно выбрать несколько 
 
 
-== ORB-SLAM2: an Open-Source SLAM System for Monocular, Stereo and RGB-D Cameras
+// Среди существующих методов локализации и навигации, наиболее силь
+== Введение
 
-чот за метод, особенности
+// NTRODUCTION
 
-NTRODUCTION
 
-// Simultaneous Localization and Mapping (SLAM) has been
-// a hot research topic in the last two decades in the Computer Vi-
-// sion and Robotics communities, and has recently attracted the
-// attention of high-technological companies. 
-// SLAM techniques
-// build a map of an unknown environment and localize the
-// sensor in the map with a strong focus on real-time operation.
 
-// Among the different sensor modalities, cameras are cheap
-// and provide rich information of the environment that allows
-// for robust and accurate place recognition. Therefore Visual
-// SLAM solutions, where the main sensor is a camera, are of
-// major interest nowadays. 
+Simultaneous Localization and Mapping (SLAM) has been
+a hot research topic in the last two decades in the Computer Vi-
+sion and Robotics communities, and has recently attracted the
+attention of high-technological companies. 
+SLAM techniques
+build a map of an unknown environment and localize the
+sensor in the map with a strong focus on real-time operation.
 
-// Place recognition is a key module
-// of a SLAM system to close loops (i.e. detect when the sensor
-// returns to a mapped area and correct the accumulated error
-// in exploration) and to relocalize the camera after a tracking
-// failure, due to occlusion or aggressive motion, or at system
-// re-initialization.
+Among the different sensor modalities, cameras are cheap
+and provide rich information of the environment that allows
+for robust and accurate place recognition. Therefore Visual
+SLAM solutions, where the main sensor is a camera, are of
+major interest nowadays. 
 
-// почему моно слам недостаточно
+Place recognition is a key module
+of a SLAM system to close loops (i.e. detect when the sensor
+returns to a mapped area and correct the accumulated error
+in exploration) and to relocalize the camera after a tracking
+failure, due to occlusion or aggressive motion, or at system
+re-initialization.
 
-// Visual SLAM can be performed by using just a monocular
-// camera, which is the cheapest and smallest sensor setup.
-// However as depth is not observable from just one camera,
-// the scale of the map and estimated trajectory is unknown.
+почему моно слам недостаточно
 
-// как происходит построение карты, необходимо сначала снять локацию с разных точек
+Visual SLAM can be performed by using just a monocular
+camera, which is the cheapest and smallest sensor setup.
+However as depth is not observable from just one camera,
+the scale of the map and estimated trajectory is unknown.
 
-//не проблема если мы заинересованы преимущественно в локализации и навигации, для реалтайм нужно использовать стерео или глубину
+как происходит построение карты, необходимо сначала снять локацию с разных точек
 
-// In addition the system bootstrapping require multi-view or
-// filtering techniques to produce an initial map as it cannot
-// be triangulated from the very first frame. Last but not least,
+не проблема если мы заинересованы преимущественно в локализации и навигации, для реалтайм нужно использовать стерео или глубину
+
+In addition the system bootstrapping require multi-view or
+filtering techniques to produce an initial map as it cannot
+be triangulated from the very first frame. Last but not least,
 
 основное применение, статистика??
 
@@ -103,6 +125,21 @@ image::4-12-2021-13-04-00-PM.png[width=320]
 // accuracy and robustness.
 
 // bundle adjustment - Регулировка связности графа
+
+
+== ORB SLAM
+
+
+read from paper, translate, correct 
+https://www.arxiv-vanity.com/papers/1502.00956/
+
+include::orb-slam-supporting.adoc[tag=Bundle_Adjustment]
+
+
+== ORB-SLAM2: an Open-Source SLAM System for Monocular, Stereo and RGB-D Cameras
+
+чот за метод, особенности
+
 
 II. RELATED WORK
 
