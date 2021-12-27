@@ -1,0 +1,253 @@
+1] C. Cadena, L. Carlone, H. Carrillo, Y. Latif, D. Scaramuzza, J. Neira,
+I. Reid, and J. J. Leonard, “Past, present, and future of simultaneous
+localization and mapping: Toward the robust-perception age,” IEEE
+Transactions on Robotics, vol. 32, no. 6, pp. 1309–1332, 2016.
+[2] R. Mur-Artal, J. M. M. Montiel, and J. D. Tardós, “ORB-SLAM: a
+versatile and accurate monocular SLAM system,” IEEE Transactions
+on Robotics, vol. 31, no. 5, pp. 1147–1163, 2015.
+[3] R. Mur-Artal and J. D. Tardós, “ORB-SLAM2: An open-source SLAM
+system for monocular, stereo, and RGB-D cameras,” IEEE Transactions
+on Robotics, vol. 33, no. 5, pp. 1255–1262, 2017.
+[4] ——, “Visual-inertial monocular SLAM with map reuse,” IEEE Robotics
+and Automation Letters, vol. 2, no. 2, pp. 796–803, 2017.
+[5] C. Campos, R. Elvira, J. J. Gómez Rodrı́guez, J. M. M. Montiel,
+and J. D. Tardós, “ORB-SLAM3: An accurate open-source library
+for visual, visual-inertial and multi-map SLAM,” https://github.com/
+UZ-SLAMLab/ORB SLAM3, 2020.
+[6] C. Campos, J. M. M. Montiel, and J. D. Tardós, “Inertial-only optimiza-
+tion for visual-inertial initialization,” in IEEE International Conference
+on Robotics and Automation (ICRA), 2020, pp. 51–57.
+[7] T. Qin, P. Li, and S. Shen, “VINS-Mono: A robust and versatile monoc-
+ular visual-inertial state estimator,” IEEE Transactions on Robotics,
+vol. 34, no. 4, pp. 1004–1020, 2018.
+[8] A. Rosinol, M. Abate, Y. Chang, and L. Carlone, “Kimera: an open-
+source library for real-time metric-semantic localization and mapping,”
+in IEEE International Conference on Robotics and Automation (ICRA),
+2020, pp. 1689–1696.
+[9] D. Gálvez-López and J. D. Tardós, “Bags of binary words for fast
+place recognition in image sequences,” IEEE Transactions on Robotics,
+vol. 28, no. 5, pp. 1188–1197, October 2012.
+[10] R. Elvira, J. D. Tardós, and J. M. M. Montiel, “ORBSLAM-atlas:
+a robust and accurate multi-map system,” in IEEE/RSJ International
+Conference on Intelligent Robots and Systems (IROS), 2019, pp. 6253–
+6259.
+[11] R. Tsai, “A versatile camera calibration technique for high-accuracy 3d
+machine vision metrology using off-the-shelf TV cameras and lenses,”
+IEEE Journal on Robotics and Automation, vol. 3, no. 4, pp. 323–344,
+1987.
+[12] J. Kannala and S. S. Brandt, “A generic camera model and calibration
+method for conventional, wide-angle, and fish-eye lenses,” IEEE Trans-
+actions on Pattern Analysis and Machine Intelligence, vol. 28, no. 8,
+pp. 1335–1340, 2006.
+[13] A. J. Davison, “Real-time simultaneous localisation and mapping with a
+single camera,” in Proc. IEEE Int. Conf. Computer Vision (ICCV), Oct
+2003, pp. 1403–1410, vol. 2.
+[14] A. J. Davison, I. D. Reid, N. D. Molton, and O. Stasse, “MonoSLAM:
+Real-time single camera SLAM,” IEEE Transactions on Pattern Analysis
+and Machine Intelligence, vol. 29, no. 6, pp. 1052–1067, 2007.
+[15] H. Kim, “SceneLib2 - MonoSLAM open-source library,” https://github.
+com/hanmekim/SceneLib2.
+[16] G. Klein and D. Murray, “Parallel tracking and mapping for small AR
+workspaces,” in IEEE and ACM International Symposium on Mixed and
+Augmented Reality (ISMAR), Nara, Japan, 2007, pp. 225–234.
+[17] ——, “Improving the agility of keyframe-based SLAM,” in European
+Conference on Computer Vision (ECCV), 2008, pp. 802–815.
+[18] ——, “Parallel tracking and mapping on a camera phone,” in 2009 8th
+IEEE International Symposium on Mixed and Augmented Reality, Oct
+2009, pp. 83–86.
+[19] ——, “PTAM-GPL,” https://github.com/Oxford-PTAM/PTAM-GPL,
+2013.
+[20] J. Engel, T. Schöps, and D. Cremers, “LSD-SLAM: Large-scale di-
+rect monocular SLAM,” in European Conference on Computer Vision
+(ECCV), 2014, pp. 834–849.
+[21] J. Engel, J. Stueckler, and D. Cremers, “Large-scale direct SLAM with
+stereo cameras,” in IEEE/RSJ International Conference on Intelligent
+Robots and Systems (IROS), 2015, pp. 141–148.
+[22] J. Engel, T. Schöps, and D. Cremers, “LSD-SLAM: Large-scale direct
+monocular SLAM,” https://github.com/tum-vision/lsd slam.
+[23] C. Forster, M. Pizzoli, and D. Scaramuzza, “SVO: Fast semi-direct
+monocular visual odometry,” in Proc. IEEE Intl. Conf. on Robotics and
+Automation, 2014, pp. 15–22.
+[24] C. Forster, Z. Zhang, M. Gassner, M. Werlberger, and D. Scaramuzza,
+“SVO: Semidirect visual odometry for monocular and multicamera
+systems,” IEEE Transactions on Robotics, vol. 33, no. 2, pp. 249–265,
+2017.
+[25] C. Forster, M. Pizzoli, and D. Scaramuzza, “SVO,” https://github.com/
+uzh-rpg/rpg svo, 2014.
+[26] R. Mur-Artal, J. D. Tardós, J. M. M. Montiel, and D. Gálvez-López,
+“ORB-SLAM2,” https://github.com/raulmur/ORB SLAM2, 2016.
+[27] J. Engel, V. Koltun, and D. Cremers, “Direct sparse odometry,” IEEE
+Transactions on Pattern Analysis and Machine Intelligence, vol. 40,
+no. 3, pp. 611–625, 2018.
+[28] H. Matsuki, L. von Stumberg, V. Usenko, J. Stückler, and D. Cremers,
+“Omnidirectional DSO: Direct sparse odometry with fisheye cameras,”
+IEEE Robotics and Automation Letters, vol. 3, no. 4, pp. 3693–3700,
+2018.
+[29] R. Wang, M. Schworer, and D. Cremers, “Stereo DSO: Large-scale direct
+sparse visual odometry with stereo cameras,” in IEEE International
+Conference on Computer Vision, 2017, pp. 3903–3911.
+[30] J. Engel, V. Koltun, and D. Cremers, “DSO: Direct Sparse Odometry,”
+https://github.com/JakobEngel/dso, 2018.
+[31] J. Zubizarreta, I. Aguinaga, and J. M. M. Montiel, “Direct sparse
+mapping,” IEEE Transactions on Robotics, vol. 36, no. 4, pp. 1363–
+1370, 2020.
+[32] J. Zubizarreta, I. Aguinaga, J. D. Tardós, and J. M. M. Montiel, “DSM:
+Direct Sparse Mapping,” https://github.com/jzubizarreta/dsm, 2019.
+[33] A. I. Mourikis and S. I. Roumeliotis, “A multi-state constraint Kalman
+filter for vision-aided inertial navigation,” in IEEE International Con-
+ference on Robotics and Automation (ICRA), 2007, pp. 3565–3572.
+[34] M. Li and A. I. Mourikis, “High-precision, consistent EKF-based visual-
+inertial odometry,” The International Journal of Robotics Research,
+vol. 32, no. 6, pp. 690–711, 2013.
+[35] M. K. Paul, K. Wu, J. A. Hesch, E. D. Nerurkar, and S. I. Roumeliotis,
+“A comparative analysis of tightly-coupled monocular, binocular, and
+stereo VINS,” in Proc. IEEE Int. Conf. Robotics and Automation (ICRA),
+2017, pp. 165–172.
+[36] M. K. Paul and S. I. Roumeliotis, “Alternating-stereo VINS: Observabil-
+ity analysis and performance evaluation,” in Proceedings of the IEEE
+Conference on Computer Vision and Pattern Recognition, 2018, pp.
+4729–4737.
+[37] K. Chaney, “Monocular MSCKF,” https://github.com/daniilidis-group/
+msckf mono, 2018.
+[38] S. Leutenegger, P. Furgale, V. Rabaud, M. Chli, K. Konolige, and
+R. Siegwart, “Keyframe-based visual-inertial SLAM using nonlinear
+optimization,” Proceedings of Robotics Science and Systems (RSS),
+2013.
+[39] S. Leutenegger, S. Lynen, M. Bosse, R. Siegwart, and P. Furgale,
+“Keyframe-based visual–inertial odometry using nonlinear optimiza-
+tion,” The International Journal of Robotics Research, vol. 34, no. 3,
+pp. 314–334, 2015.
+[40] S. Leutenegger, A. Forster, P. Furgale, P. Gohl, and S. Lynen, “OKVIS:
+Open keyframe-based visual-inertial SLAM (ROS version),” https://
+github.com/ethz-asl/okvis ros, 2016.
+[41] M. Bloesch, S. Omari, M. Hutter, and R. Siegwart, “Robust visual
+inertial odometry using a direct EKF-based approach,” in IEEE/RSJ
+Intelligent Robots and Systems (IROS), 2015, pp. 298–304.17
+[42] M. Bloesch, M. Burri, S. Omari, M. Hutter, and R. Siegwart, “Iterated
+extended Kalman filter based visual-inertial odometry using direct
+photometric feedback,” The International Journal of Robotics Research,
+vol. 36, no. 10, pp. 1053–1072, 2017.
+[43] M. Bloesch, S. Omari, M. Hutter, and R. Siegwart, “ROVIO,” https:
+//github.com/ethz-asl/rovio, 2015.
+[44] T. Qin, J. Pan, S. Cao, and S. Shen, “A general optimization-based
+framework for local odometry estimation with multiple sensors,” arXiv
+preprint arXiv:1901.03638, 2019.
+[45] T. Qin, S. Cao, J. Pan, P. Li, and S. Shen, “VINS-Fusion: An
+optimization-based multi-sensor state estimator,” https://github.com/
+HKUST-Aerial-Robotics/VINS-Fusion, 2019.
+[46] L. von Stumberg, V. Usenko, and D. Cremers, “Direct sparse visual-
+inertial odometry using dynamic marginalization,” in Proc. IEEE Int.
+Conf. Robotics and Automation (ICRA), 2018, pp. 2510–2517.
+[47] V. Usenko, N. Demmel, D. Schubert, J. Stückler, and D. Cremers,
+“Visual-inertial mapping with non-linear factor recovery,” IEEE Robotics
+and Automation Letters, vol. 5, no. 2, pp. 422–429, April 2020.
+[48] V. Usenko and N. Demmel, “BASALT,” https://gitlab.com/
+VladyslavUsenko/basalt, 2019.
+[49] A. Rosinol, M. Abate, Y. Chang, and L. Carlone, “Kimera,” https://
+github.com/MIT-SPARK/Kimera, 2019.
+[50] A. J. Davison, “SceneLib 1.0,” https://www.doc.ic.ac.uk/ ∼ ajd/Scene/
+index.html.
+[51] S. I. Roumeliotis and A. I. Mourikis, “Vision-aided inertial navigation,”
+Sep. 19 2017, US Patent 9,766,074.
+[52] J. Civera, A. J. Davison, and J. M. M. Montiel, “Inverse depth
+parametrization for monocular SLAM,” IEEE Transactions on Robotics,
+vol. 24, no. 5, pp. 932–945, 2008.
+[53] L. Clemente, A. J. Davison, I. D. Reid, J. Neira, and J. D. Tardós, “Map-
+ping large loops with a single hand-held camera,” in Proc. Robotics:
+Science and Systems, Atlanta, GA, USA, June 2007.
+[54] J. Civera, O. G. Grasa, A. J. Davison, and J. M. M. Montiel, “1-
+point RANSAC for extended Kalman filtering: Application to real-time
+structure from motion and visual odometry,” Journal of field robotics,
+vol. 27, no. 5, pp. 609–631, 2010.
+[55] H. Strasdat, J. M. M. Montiel, and A. J. Davison, “Visual SLAM: Why
+filter?” Image and Vision Computing, vol. 30, no. 2, pp. 65–77, 2012.
+[56] ——, “Scale drift-aware large scale monocular SLAM,” Robotics:
+Science and Systems VI, vol. 2, 2010.
+[57] H. Strasdat, A. J. Davison, J. M. M. Montiel, and K. Konolige,
+“Double window optimisation for constant time visual SLAM,” in IEEE
+International Conference on Computer Vision (ICCV), 2011, pp. 2352–
+2359.
+[58] X. Gao, R. Wang, N. Demmel, and D. Cremers, “LDSO: Direct sparse
+odometry with loop closure,” in IEEE/RSJ International Conference on
+Intelligent Robots and Systems (IROS), 2018, pp. 2198–2204.
+[59] S. H. Lee and J. Civera, “Loosely-coupled semi-direct monocular
+SLAM,” IEEE Robotics and Automation Letters, vol. 4, no. 2, pp. 399–
+406, 2018.
+[60] T. Lupton and S. Sukkarieh, “Visual-inertial-aided navigation for high-
+dynamic motion in built environments without initial conditions,” IEEE
+Transactions on Robotics, vol. 28, no. 1, pp. 61–76, 2012.
+[61] C. Forster, L. Carlone, F. Dellaert, and D. Scaramuzza, “On-manifold
+preintegration for real-time visual–inertial odometry,” IEEE Transactions
+on Robotics, vol. 33, no. 1, pp. 1–21, 2017.
+[62] A. Martinelli, “Closed-form solution of visual-inertial structure from
+motion,” International Journal of Computer Vision, vol. 106, no. 2, pp.
+138–152, 2014.
+[63] J. Kaiser, A. Martinelli, F. Fontana, and D. Scaramuzza, “Simultaneous
+state initialization and gyroscope bias calibration in visual inertial aided
+navigation,” IEEE Robotics and Automation Letters, vol. 2, no. 1, pp.
+18–25, 2017.
+[64] C. Campos, J. M. M. Montiel, and J. D. Tardós, “Fast and robust ini-
+tialization for visual-inertial SLAM,” in Proc. IEEE Int. Conf. Robotics
+and Automation (ICRA), 2019, pp. 1288–1294.
+[65] E. Eade and T. Drummond, “Unified loop closing and recovery for
+real time monocular SLAM,” in Proc. 19th British Machine Vision
+Conference (BMVC), Leeds, UK, September 2008.
+[66] R. Castle, G. Klein, and D. W. Murray, “Video-rate localization in mul-
+tiple maps for wearable augmented reality,” in 12th IEEE International
+Symposium on Wearable Computers, Sept 2008, pp. 15–22.
+[67] C. Forster, S. Lynen, L. Kneip, and D. Scaramuzza, “Collaborative
+monocular SLAM with multiple micro aerial vehicles,” in IEEE/RSJ
+International Conference on Intelligent Robots and Systems, 2013, pp.
+3962–3970.
+[68] L. Riazuelo, J. Civera, and J. M. M. Montiel, “C2TAM: A cloud frame-
+work for cooperative tracking and mapping,” Robotics and Autonomous
+Systems, vol. 62, no. 4, pp. 401–413, 2014.
+[69] J. G. Morrison, D. Gálvez-López, and G. Sibley, “MOARSLAM: Mul-
+tiple operator augmented RSLAM,” in Distributed autonomous robotic
+systems. Springer, 2016, pp. 119–132.
+[70] P. Schmuck and M. Chli, “Multi-UAV collaborative monocular SLAM,”
+in IEEE International Conference on Robotics and Automation (ICRA),
+2017, pp. 3863–3870.
+[71] ——, “CCM-SLAM: Robust and efficient centralized collaborative
+monocular simultaneous localization and mapping for robotic teams,”
+Journal of Field Robotics, vol. 36, no. 4, pp. 763–781, 2019.
+[72] H. A. Daoud, A. Q. M. Sabri, C. K. Loo, and A. M. Mansoor,
+“SLAMM: Visual monocular SLAM with continuous mapping using
+multiple maps,” PloS one, vol. 13, no. 4, 2018.
+[73] V. Lepetit, F. Moreno-Noguer, and P. Fua, “EPnP: An accurate O(n)
+solution to the PnP problem,” International Journal of Computer Vision,
+vol. 81, no. 2, pp. 155–166, 2009.
+[74] S. Urban, J. Leitloff, and S. Hinz, “MLPnP - A Real-Time Maximum
+Likelihood Solution to the Perspective-n-Point Problem,” ISPRS Annals
+of Photogrammetry, Remote Sensing and Spatial Information Sciences,
+pp. 131–138, 2016.
+[75] R. Mur-Artal and J. D. Tardós, “Fast relocalisation and loop closing
+in keyframe-based SLAM,” in Proc. IEEE Int. Conf. Robotics and
+Automation (ICRA). IEEE, 2014, pp. 846–853.
+[76] D. G. Lowe, “Distinctive image features from scale-invariant keypoints,”
+International Journal of Computer Vision, vol. 60, no. 2, pp. 91–110,
+2004.
+[77] B. K. Horn, “Closed-form solution of absolute orientation using unit
+quaternions,” JOSA A, vol. 4, no. 4, pp. 629–642, 1987.
+[78] J. Delmerico and D. Scaramuzza, “A benchmark comparison of monoc-
+ular visual-inertial odometry algorithms for flying robots,” in IEEE
+International Conference on Robotics and Automation (ICRA), 2018,
+pp. 2502–2509.
+[79] M. Burri, J. Nikolic, P. Gohl, T. Schneider, J. Rehder, S. Omari, M. W.
+Achtelik, and R. Siegwart, “The EuRoC micro aerial vehicle datasets,”
+The International Journal of Robotics Research, vol. 35, no. 10, pp.
+1157–1163, 2016.
+[80] D. Schubert, T. Goll, N. Demmel, V. Usenko, J. Stückler, and D. Cre-
+mers, “The TUM VI benchmark for evaluating visual-inertial odometry,”
+in IEEE/RSJ International Conference on Intelligent Robots and Systems
+(IROS), 2018, pp. 1680–1687.
+[81] J. Sturm, N. Engelhard, F. Endres, W. Burgard, and D. Cremers, “A
+benchmark for the evaluation of RGB-D SLAM systems,” in IEEE/RSJ
+International Conference on Intelligent Robots and Systems (IROS),
+2012, pp. 573–580.
+[82] D. Schubert, T. Goll, N. Demmel, V. Usenko, J. Stückler, and D. Cre-
+mers, “The TUM VI benchmark for evaluating visual-inertial odometry,”
+arXiv preprint arXiv:1804.06120v3, March 2020.
+[83] N. Yang, L. v. Stumberg, R. Wang, and D. Cremers, “D3VO: Deep
+depth, deep pose and deep uncertainty for monocular visual odometry,”
+in Proceedings of the IEEE/CVF Conference
