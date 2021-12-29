@@ -1,7 +1,12 @@
 // • Модуля нейросети модели распространения сигнала
 // • Модуля нейросети для работы с разнородным набором навигационных данных
-
 :imagesdir: images
+:toc: preamble
+
+:author: timur chikichev
+:email: t.chikichev@navigine.ru
+
+:pygments-style: Coderay
 
 нейросети модели распространения сигнала
 
@@ -11,18 +16,20 @@
 
 global bayes optimization
 
-encoder - decoder
+encoder decoder
+
+
 
 3. Описание алгоритмов ORB SLAM, 
 описание методов ИИ, используемых в SLAM.
-- 50 стр.
+50 стр.
 
 chimera, semantic segmentation
 
 navigation approaches,
 
 navigation for drone, car, robot, pedestrian
-sensor fusion, radiomap & map - data, representation, data collection, full pipeline
+sensor fusion, radiomap & map data, representation, data collection, full pipeline
 
 neural networks for navigation
 // list papers from link
@@ -75,11 +82,11 @@ Probabilistic Data Association for Semantic SLAM
 // the robot-landmark pose optimization. The performance of our
 // algorithm is demonstrated on indoor and outdoor datasets.
 
-.Example keyframe image overlaid with ORB features (green points) and object detections
-image:4-12-2021-15-25-37-PM.png[] 
+// .Example keyframe image overlaid with ORB features (green points) and object detections
+// image:4-12-2021-15-25-37-PM.png[] 
 
-.Estimated sensor trajectory (blue) and landmark positions and classes using inertial, geometric, and semantic measurements such as those in Fig. 1. The accompanying video shows the estimation process in real time.
-image:4-12-2021-15-26-20-PM.png[] 
+// .Estimated sensor trajectory (blue) and landmark positions and classes using inertial, geometric, and semantic measurements such as those in Fig. 1. The accompanying video shows the estimation process in real time.
+// image:4-12-2021-15-26-20-PM.png[] 
 
 
 Semantic information
@@ -396,3 +403,711 @@ image:4-12-2021-15-53-06-PM.png[]
 
 // image:4-12-2021-16-57-49-PM.png[] 
 
+// Alexey Panyov, [24.12.2021 22:11]
+Let me answer: The key application is data fusion. We need to process all the data into the same format. 
+
+I.e. it can be compact point clouds representation using AI&neural networks, it can be regression task (for localization), it can be segmentation.
+// 
+// Alexey Panyov, [24.12.2021 22:12]
+Yes, in addition to these mentioned by Ivan we also have all the topics related to visual localization, with keypoint detector and descriptor learning, neural matchers for data association, semantics and object classification. For point clouds we have feature extraction, alignment methods (enhanced by AI in various forms), uncertainty prediction, etc.
+I did not elaborate much on those topics, since we were just discussing the general lines.
+
+
+== data fusion
+
+представление карты, виды представления
+
+работа с видами карты, плотные методы, полные методы
+
+универсальные форматы, сбор данных конвертация
+
+использование нейронок для быстрых операций с картой
+
+
+
+regression task (for localization), it can be segmentation
+
+поиск максимально похожей координаты, дескрипторы
+
+использование сегментации для:
+
+* учета окружения, объектов
+* большей точности карты
+* просто получение сегментации карты для личных целей
+* использование семантики для навигации в динамическом окружении
+** игнорировать подвижные обхекты
+** получить статич. карту
+** использовать динамические объекты для дометрии
+
+//найти обзор литературы по теме
+
+навигация по нейронкам vs slam методы, есть ли преимущество, как обучать
+
+* можно ли хранить локальную карту как нейронку и по ней осуществлять регрессию.... bag of words выглядит экономичнее
+* можно ли хранить дескрипторы как нейронку
+* энкодер жекодер, cnn, посмотреть архитектуру в работах
+** посмотреть выписки китайской статьи, посмотреть обзоры
+
+.работа со стерео
+* получение глубины, параллакс, методы
+** модификации стерео методов
+** double pixel в смарфонах, можно ли использовать
+* смартфоны со стереокамерой, использовани фокуса камеры для определения глуубины в сцене
+* профессиональные стереокамеры, камеры глубины
+** обзор на хабре, спецификация по сенсорам в авто, посмотреть обзоры
+* event-based стереокамеры, в чем отличие, преимущества, обзор методов
+* датасеты и SOTA методы
+
+.прямые методы
+* lsd-slam
+// * direct slam
+* kimera
+* stereo cnn......
+
+.графовые методы
+* графовые нейронки
+* оптимизация на графе
+* факторные графы
+* bundle adjustment
+
+
+сделать обзор, 
+скопировать фото из методов, 
+выбрать док для описания, 
+прописать структуру, 
+оформить
+
+
+visual localization, 
+keypoint detector and descriptor learning, 
+
+neural matchers for data association, 
+semantics and object classification. 
+
+.point clouds
+. feature extraction
+. alignment methods (enhanced by AI in various forms)
+. uncertainty prediction, etc.
+
+
+
+
+---
+
+
+
+
+== Event-based Vision: A Survey
+Guillermo Gallego, Tobi Delbrück, Garrick Orchard, Chiara Bartolozzi, Brian Taba, Andrea Censi,
+Stefan Leutenegger, Andrew Davison, Jörg Conradt, Kostas Daniilidis, Davide Scaramuzza
+
+
+
+Custom stereo event-camera rig consisting of two DAVIS346 cameras
+with a horizontal baseline of 7.5 cm.
+image:3-12-2021-17-21-20-PM.png[] 
+
+Event-Based Stereo Visual Odometry
+
+Event-based Vision: A Survey
+https://www.researchgate.net/publication/332493708
+
+[per-pixel brightness changes]
+Abstract— Event cameras are bio-inspired sensors that differ from conventional frame cameras: 
+Instead of capturing images at a fixed rate, 
+they asynchronously measure per-pixel brightness changes, and output a stream of events that encode the time, location and sign
+of the brightness changes. 
+
+Event cameras offer attractive properties compared to traditional cameras: high temporal resolution (in the
+order of µ s ), very high dynamic range ( 140 dB vs. 60 dB ), low power consumption, and high pixel bandwidth (on the order of kHz )
+resulting in reduced motion blur. 
+
+[low-latency, high speed, HDR]
+event cameras have a large potential 
+for traditional cameras, becuase of low-latency, high speed, and high dynamic range. 
+
+novel methods are required to process the
+unconventional output of these sensors in order to unlock their potential. 
+
+// This paper provides a comprehensive overview of the
+// emerging 
+[event-based vision, event cameras]
+field of event-based vision, with a focus on the applications and the algorithms developed to unlock the outstanding
+properties of event cameras. 
+// We present
+
+[event-cameras, feature-detection-and-tracking, optic-flow] 
+event cameras from their working principle, the actual sensors that are available and the tasks that they have been used for, from low-level vision (feature detection and tracking, optic flow, etc.) to high-level vision (reconstruction, segmentation, recognition). 
+
+// We also discuss 
+[spiking neural networks, learning-based techniques]
+the techniques developed to process events, including learning-based techniques, as well as specialized processors for these novel sensors, such as spiking neural networks. 
+
+// Additionally, we highlight the
+challenges that remain to be tackled and the opportunities that lie ahead in the search for a more efficient, bio-inspired way for
+machines to perceive and interact with the world.
+
+
+Event cameras are asynchronous sensors that pose a
+paradigm shift in the way visual information is acquired. This
+is because they sample light based on the scene dynamics,
+rather than on a clock that has no relation to the viewed
+scene. Their advantages are: very high temporal resolution
+and low latency (both in the order of microseconds), very
+high dynamic range ( 140 dB vs. 60 dB of standard cameras),
+and low power consumption.
+
+
+Applications of Event Cameras: Typical scenarios where
+event cameras offer advantages over other sensing modal-
+ities include real-time interaction systems, such as robotics
+or wearable electronics [10], where operation under uncon-
+trolled lighting conditions, latency, and power are impor-
+tant [11]. Event cameras are used for object tracking [12],
+[13], surveillance and monitoring [14], and object/gesture
+recognition [15], [16], [17]. They are also profitable for depth
+estimation [18], [19], structured light 3D scanning [20],
+optical flow estimation [21], [22], HDR image reconstruc-
+tion [8], [23], [24] and Simultaneous Localization and Map-
+ping (SLAM) [25], [26], [27]. Event-based vision is a growing
+field of research, and other applications, such as image
+deblurring [28] or star tracking [29], [30], will appear as
+event cameras become widely available.
+
+=== Event Representations
+
+
+image:3-12-2021-17-29-27-PM.png[] 
+Summary of the DAVIS camera [4], comprising an event-
+based dynamic vision sensor (DVS [2]) and a frame-based active pixel
+sensor (APS) in the same pixel array, sharing the same photodiode in
+each pixel. (a) Simplified circuit diagram of the DAVIS pixel (DVS pixel
+in red, APS pixel in blue). (b) Schematic of the operation of a DVS pixel,
+converting light into events. (c)-(d) Pictures of the DAVIS chip and USB
+camera. (e) A white square on a rotating black disk viewed by the DAVIS
+produces grayscale frames and a spiral of evens in space-time. Events
+in space-time are color-coded, from green (past) to red (present). (f)
+Frame and overlaid events of a natural scene; the frames lag behind
+the low-latency events (colored according to polarity). Images adapted
+from [4], [35]. A more in-depth comparison of the DVS, DAVIS and ATIS
+pixel designs can be found in [36].
+
+* Individual events
+* Event packet
+* Event frame/image or 2D histogram
+* Time surface (TS): A TS is a 2D map where each pixel
+stores a single time value (e.g., the timestamp of the last
+event at that pixel [79], [103]). Thus events are converted
+into an image whose “intensity” is a function of the motion
+history at that location, with brighter values corresponding
+to a more recent motion. TSs are called Motion History
+Images in classical computer vision [104]. They explicitly
+expose the rich temporal information of the events and can
+be updated asynchronously. Using an exponential kernel,
+TSs emphasize recent events over past events. To achieve in-
+variance to motion speed, normalization is proposed [105],
+[106]. Compared to other grid-like representations of events,
+TSs highly compress information as they only keep one
+timestamp per pixel, thus their effectiveness degrades on
+textured scenes, in which pixels spike frequently. To make
+TSs less sensitive to noise, each pixel value may be com-
+puted by filtering the events in a space-time window [107].
+More examples include [21], [108], [109], [110].
+* Voxel Grid
+* 3D point set
+* Point sets on image plane
+* Motion-compensated event image
+* Reconstructed images
+
+
+image:3-12-2021-17-30-34-PM.png[] 
+Figure 4. Events in a space-time volume are converted into an inter-
+polated voxel grid (left) that is fed to a DNN to compute optical flow
+and ego-motion in an unsupervised manner [114]. Thus, modern tensor-
+based DNN architectures are re-utilized using novel loss functions (e.g.,
+motion compensation) adapted to event data.
+
+
+3.2
+=== Methods for Event Processing
+
+Event processing systems consist of several stages: pre-
+processing (input adaptation), core processing (feature ex-
+traction and analysis) and post-processing (output creation).
+The event representations in Section 3.1 may occur at differ-
+ent stages: for example, in [122] an event packet is used at
+pre-processing, and motion-compensated event images are
+the internal representation at the core processing stage. In
+other cases, the above representations may be used only at
+pre-processing: in [22] events are converted to event images
+// [ANN]
+and time surfaces that are then processed by an ANN.
+The methods used to process events are influenced by
+the choice of representation and hardware platform avail-
+able. These three factors influence each other. For example,
+it is natural to use dense representations and design algo-
+rithms accordingly that are executed on standard processors
+(e.g., CPUs or GPUs). 
+// [SNNs, neuromorphic hardware , DNN]
+At the same time, it is also natural to
+process events one-by-one on SNNs (Section 3.3) that are
+implemented on neuromorphic hardware (Section 5.1), in
+search for more efficient and low-latency solutions. Major
+exponents of event-by-event methods are filters (determin-
+istic or probabilistic) and SNNs. For events processed in
+packets there are also many methods: hand-crafted feature
+extractors, deep neural networks (DNNs), etc. Next, we
+review some of the most common methods.
+
+Event-by-event–based Methods:: Deterministic filters,
+such as (space-time) convolutions and activity filters have
+been used for noise reduction, feature extraction [130],
+image reconstruction [61], [131] and brightness filtering
+[62], among other applications. Probabilistic filters (Bayesian
+methods), such as Kalmanand particle filters have been
+used for pose tracking in SLAM systems [7], [24], [25],
+[74], [96]. These methods rely on the availability of addi-
+tional information (typically “appearance” information, e.g.,
+grayscale images or a map of the scene), which may be
+provided by past events or by additional sensors. Then, each
+incoming event is compared against such information and
+the resulting mismatch provides innovation to update the
+filter state. Filters are a dominant class of methods for event-
+by-event processing because they naturally (i) handle asyn-
+chronous data, thus providing minimum processing latency,
+preserving the sensor’s characteristics, and (ii) aggregate
+information from multiple small sources (e.g., events). 
+// [unsupervised learning, multi-layer ANN, SVM classifier]
+The other dominant class of methods takes the form of a
+multi-layer ANN (whether spiking or not) containing many
+parameters which must be computed from the event data.
+Networks trained with unsupervised learning typically act
+as feature extractors for a classifier (e.g., SVM), which still
+requires some labeled data for training [15], [103], [132].
+If enough labeled data is available, supervised learning
+methods such as backpropagation can be used to train a
+network without the need for a separate classifier. Many
+approaches use packets of events during training (deep
+learning on frames), and later convert the trained network
+to an SNN that processes data event-by-event [133], [134],
+[135], [136], [137]. Event-by-event model-free methods have
+mostly been applied to classify objects [15], [103], [133], [134]
+or actions [16], [17], [138], and have targeted embedded
+applications [133], often using custom SNN hardware [15],
+[17] (Section 5.1). SNNs trained with deep learning typically
+provide higher accuracy than those relying on unsupervised
+learning for feature extraction, but there is growing interest
+in finding efficient ways to implement supervised learning
+directly in SNNs [138], [139] and in embedded devices [140].
+
+// [image alignment, block matching, optical flow computation, image-based learning methods (DNNs, SVMs, Random Forests)]
+
+Methods for Groups of Events:: Because each event car-
+ries little information and is subject to noise, several events
+are often processed together to yield a sufficient signal-to-
+noise ratio for the problem considered. Methods for groups
+of events use the above representations (event packet, event
+frame, etc.) to gather the information contained in the events
+in order to estimate the problem unknowns, usually with-
+out requiring additional data. Hence, events are processed
+differently depending on their representation.
+Many representations just perform data pre-processing
+to enable the re-utilization of image-based computer vision
+tools. In this respect, event frames are a practical represen-
+tation that has been used by multiple methods on vari-
+ous tasks. In [100], [141] event frames allow to re-utilize
+traditional stereo methods, providing modest results. They
+also provide an adaptive frame rate signal that is profitable
+for camera pose estimation [26] (by image alignment) or
+optical flow computation [101] (by block matching). Event
+frames are also a simple yet effective input for image-
+based learning methods (DNNs, SVMs, Random Forests)
+[22], [102], [142], [143]. Few works design algorithms taking
+into account their photometric meaning (4). This was done
+// [photometric, visual quantities of interest (optical flow, brightness, etc., deblurring)]
+in [23], showing that such a simple representation allows to
+jointly compute several visual quantities of interest (optical
+flow, brightness, etc.). Intensity increment images (4) are
+also used for feature tracking [63], image deblurring [28]
+or camera tracking [64].
+//  [sensitive to scene edges, motion analysis, optical flow]
+Because time surfaces (TSs) are sensitive to scene edges
+and the direction of motion they have been utilized for
+many tasks involving motion analysis and shape recogni-
+tion. For example, fitting local planes to the TS yields optical
+flow information [21], [144]. TSs are used as building blocks
+of hierarchical feature extractors, similar to neural networks,
+that aggregate information from successively larger space-
+time neighborhoods and is then passed to a classifier for
+recognition [103], [107]. TSs provide proxy intensity images
+for matching in stereo methods [110], [145], where the pho-
+tometric matching criterion becomes temporal: matching
+pixels based on event concurrence and similarity of event
+timestamps across image planes. Recently, TSs have been
+probed as input to convolutional ANNs (CNNs) to compute
+optical flow [22], where the network acts both as feature ex-
+tractor and velocity regressor. TSs are popular for corner de-
+tection using adaptations of image-based methods (Harris,
+FAST) [105], [108], [109] or new learning-based ones [106].
+However, their performance degrades on highly textured
+scenes [109] due to the “motion overwriting” problem [104].
+// variational optimization and ANNs (e.g., DNNs) on voxel grids
+Methods working on voxel grids include variational opti-
+mization and ANNs (e.g., DNNs). They require more memory and often more computations than methods working on lower dimensional representations but are able to provide better results because temporal information is better preserved. In these methods voxel grids are used as an
+internal representation [112] (e.g., to compute optical flow)
+or as the multichannel input/output of a DNN [114], [115].
+Thus, voxel grids are processed by means of convolutions
+[114], [115] or the operations derived from the optimality
+conditions of an objective function [112].
+// [grid-like representations, voxels, octomap, 3d-2d, image to vector, cnn]
+Once events have been converted to grid-like representations, countless tools from conventional vision can be applied to extract information: from feature extractors (e.g., CNNs) to similarity metrics (e.g., cross-correlation) that measure the goodness of fit or consistency between data and task-model hypothesis (the degree of event alignment, etc.).
+
+// image:3-12-2021-17-55-08-PM.png[] 
+image::3-12-2021-17-55-34-PM.png[] 
+Figure 4. Events in a space-time volume are converted into an inter-
+polated voxel grid (left) that is fed to a DNN to compute optical flow
+and ego-motion in an unsupervised manner [114]. Thus, modern tensor-
+based DNN architectures are re-utilized using novel loss functions (e.g.,
+motion compensation) adapted to event data.
+// [objective functions for classification (SVMs, CNNs), clustering, data association, motion estimation]
+Such metrics are used as objective functions for classification
+(SVMs, CNNs), clustering, data association, motion estimation, etc. In the neuroscience literature there are efforts to
+design metrics that act directly on spikes (e.g., event stream),
+to avoid the issues that arise due to data conversion.
+Deep learning methods for groups of events consist of a
+deep neural network (DNN). 
+// deep neural network (DNN), classification, image reconstruction, 
+Sample applications include classification [146], [147], image reconstruction [8], [113], steering angle prediction [102], [148], and estimation of optical flow [22], [114], [149], depth [149] or ego-motion [114].
+These methods differentiate themselves mainly in the representation of the input and in the loss functions optimized during training. Several representations have been used, such as event images [102], [143], TSs [22], [129], [149], voxel grids [114], [115] or point sets [116] (Section 3.1). While loss functions in classification tasks use manually annotated labels, networks for regression tasks from events may be supervised by a third party ground truth (e.g., a pose) [102], [143] or by an associated grayscale image [22] to measure photoconsistency, or be completely unsupervised (depending only on the training input events) [114], [149]. 
+// Loss functions for unsupervised learning, networks architecture
+Loss functions for unsupervised learning from events are studied in [124]. In terms of architecture, most networks have an encoder-decoder structure, as in Fig. 4. Such a structure allows the use of convolutions only, thus minimizing the number of network weights. Moreover, a loss function can be applied at every spatial scale of the decoder.
+
+// motion compensation -> ego-motion, optical flow, depth, feature motion for VIO
+Finally, motion compensation is a technique to estimate the parameters of the motion that best fits a group of events. It has a continuous-time warping model that allows to exploit
+the fine temporal resolution of events (Section 3.1), and
+hence departs from conventional image-based algorithms.
+Motion compensation can be used to estimate ego-motion
+[122], [123], optical flow [114], [123], [126], [150], depth
+[19], [123], [124], motion segmentation [128], [150], [151] or
+feature motion for VIO [125], [127]. The technique in [99]
+also has a continuous-time motion model, albeit not used
+for motion compensation but rather to fuse event data with
+IMU data. 
+
+// how to optimize ekf from camera, slam... automatically?
+To find the parameters of the continuous-time motion models [99], [124], standard optimization methods, e.g., conjugate gradient or Gauss-Newton, may be applied. The number of events per group (i.e., size of the spatio-
+temporal neighborhood) is an important hyper-parameter
+of many methods. While this number highly depends on
+the processing algorithm and the available resources, there
+are two main strategies [11], [113], [122]: constant number
+of events or constant observation time (i.e., constant frame
+rate). Utilizing a constant number of events fits more natu-
+rally with the camera’s output and scene dynamics, whereas
+a constant frame rate selects a varying number of events:
+sometimes too few or too many (depending on the scene)
+for the subsequent module in the processing pipeline.
+
+// event-based optical flow ->> Spike-Timing Dependent Plasticity (STDP) ->> supervised learning, such as back-propagation ->> deep networks to efficiently implement spiking deep
+convolutional networks
+Tasks: Bio-inspired models have been adopted for sev-
+eral low-level visual tasks. For example, event-based optical10
+flow can be estimated by using spatio-temporally oriented
+filters [79], [130], [153] that mimic the working principle of
+receptive fields in the primary visual cortex [154], [155]. The
+same type of oriented filters have been used to implement a
+spike-based model of selective attention [156] based on the
+biological proposal from [157]. Bio-inspired models from
+binocular vision, such as recurrent lateral connectivity and
+excitatory-inhibitory neural connections [158], have been
+used to solve the event-based stereo correspondence prob-
+lem [40], [159], [160], [161], [162] or to control binocular ver-
+gence on humanoid robots [163]. The visual cortex has also
+inspired the hierarchical feature extraction model proposed
+in [164], which has been implemented in SNNs and used
+for object recognition. The performance of such networks im-
+proves the better they extract information from the precise
+timing of the spikes [165]. Early networks were hand-crafted
+(e.g., Gabor filters) [52], but recent efforts let the network
+build receptive fields through brain-inspired learning, such
+as Spike-Timing Dependent Plasticity (STDP), yielding bet-
+ter recognition rates [132]. This research is complemented
+by approaches where more computationally inspired types
+of supervised learning, such as back-propagation, are used
+in deep networks to efficiently implement spiking deep
+convolutional networks [139], [166], [167], [168], [169]. The
+advantages of the above methods over their traditional
+vision counterparts are lower latency and higher efficiency.
+To build small, efficient and reactive computational sys-
+tems, insect vision is also a source of inspiration for event-
+based processing. To this end, systems for fast and efficient
+obstacle avoidance and target acquisition in small robots
+have been developed [170], [171], [172] based on models
+of neurons driven by DVS output that respond to looming
+objects and trigger escape reflexes.
+
+
+// 4.3
+== 3D reconstruction. Monocular and Stereo
+Depth estimation with event cameras is a broad field. It can
+be divided according to the considered scenario and camera
+setup or motion, which determine the problem assumptions.
+*Instantaneous Stereo*
+
+// disparities, Poggio’s cooperative stereo algorithm
+*Global approaches* produce better depth estimates (i.e.,
+less sensitive to ambiguities) than local approaches by con-
+sidering additional regularity constraints. In this category,
+we find extensions of Marr and Poggio’s cooperative stereo
+algorithm [158] for the case of event cameras [40], [160],
+[161], [162], [202]. These approaches consist of a network
+of disparity sensitive neurons that receive events from both
+cameras and perform various operations (amplification, in-
+hibition) that implement matching constraints (uniqueness,
+continuity) to extract disparities. They use not only the
+temporal similarity to match events but also their spatiotemporal neighborhoods, with iterative nonlinear operations that result in an overall globally-optimal solution. A discussion of cooperative stereo is provided in [42]. 
+// Belief Propagation on a Markov Random Field, energy function with regularity constraints
+Also in this category are [203], [204], [205], which use Belief Propagation on a Markov Random Field or semiglobal
+matching [206] to improve stereo matching. These methods are primarily based on optimization, trying to define a well-behaved energy function whose minimizer is the correct correspondence map. The energy function incoraporates regularity constraints, which enforce coupling of correspondences at neighboring points and therefore make the solution map less sensitive to ambiguities than local methods, at the expense of computational effort. 
+
+
+image:3-12-2021-18-05-47-PM.png[] 
+Figure 7. Example of monocular depth estimation with a hand-held event
+camera. (a) Scene, (b) semi-dense depth map, pseudo-colored from red
+(close) to blue (far). Image courtesy of [19].
+
+
+*Multi-Perspective Panoramas*: Some works [210], [211]
+also target the problem of instantaneous stereo (depth maps
+produced using events over very short time intervals), but
+using two non-simultaneous event cameras. These methods
+exploit a constrained hardware setup (two rotating event
+cameras with known motion) to either (i) recover intensity
+images on which conventional stereo is applied [210] or (ii)
+match events using temporal metrics [211].
+Monocular Depth Estimation: Depth estimation with a
+single event camera has been shown in [19], [25], [123]. It is a
+significantly different problem from previous ones because
+temporal correlation between events across multiple image
+planes cannot be exploited. These methods recover a semi-
+dense 3D reconstruction of the scene (i.e., 3D edge map)
+by integrating information from the events of a moving
+camera over time, and therefore require knowledge of cam-
+era motion. Hence they do not pursue instantaneous depth
+estimation, but rather depth estimation for SLAM [212].
+The method in [25] is part of a pipeline that uses three
+filters operating in parallel to jointly estimate the motion of
+the event camera, a 3D map of the scene, and the intensity
+image. Their depth estimation approach requires using an
+additional quantity—the intensity image—to solve for data
+association. In contrast, [19] (Fig. 7) proposes a space-sweep
+method that leverages the sparsity of the event stream to
+perform 3D reconstruction without having to establish event
+matches or recover the intensity images. It back-projects
+events into space, creating a ray density volume [213], and
+
+
+
+
+
+*Monocular Depth Estimation*: Depth estimation with a
+single event camera has been shown in [19], [25], [123]. It is a
+significantly different problem from previous ones because
+temporal correlation between events across multiple image
+planes cannot be exploited. These methods recover a semi-
+dense 3D reconstruction of the scene (i.e., 3D edge map)
+by integrating information from the events of a moving
+camera over time, and therefore require knowledge of cam-
+era motion. Hence they do not pursue instantaneous depth
+estimation, but rather depth estimation for SLAM [212].
+The method in [25] is part of a pipeline that uses three
+filters operating in parallel to jointly estimate the motion of
+the event camera, a 3D map of the scene, and the intensity
+image. Their depth estimation approach requires using an
+additional quantity—the intensity image—to solve for data
+association. In contrast, [19] (Fig. 7) proposes a space-sweep
+method that leverages the sparsity of the event stream to
+perform 3D reconstruction without having to establish event
+matches or recover the intensity images. It back-projects
+events into space, creating a ray density volume [213], and
+then finds scene structure as local maxima of ray density. It
+is computationally efficient and used for VO in [26].
+
+*Stereo Depth for SLAM*: Recently, inspired by work
+in small-baseline multi-view stereo [214], a stereo depth
+estimation method for SLAM has been presented [110]. It
+obtains a semi-dense 3D reconstruction of the scene by
+optimizing the local spatio-temporal consistency of events
+across image planes using time surfaces. It does not fol-
+low the classical paradigm of event matching plus trian-
+gulation [145], but rather a forward-projection approach
+that enables depth estimation without establishing event
+correspondences explicitly. The method opens the door for
+bringing the advantages of event cameras to event-based
+stereo SLAM applications such as self-driving cars.
+
+*Depth Estimation using Structured Light*: All the above
+3D reconstruction methods are passive, i.e., do not interfere
+with the scene. In contrast, there are some works on event-
+based active 3D reconstruction, based on emitting light onto
+the scene and measuring reflection with event cameras [20],
+[215], [216]. For example, [215] combines a DVS with a
+pulsed line laser to allow fast terrain reconstruction, in the
+style of a 3D line scanner. Motion Contrast 3D scanning [20]
+is a structured light technique that simultaneously achieves
+high resolution, high speed and robust performance in
+challenging 3D scanning environments (e.g., strong illumi-
+nation, or highly reflective and moving surfaces). Active sys-
+tems with pulsed lasers exploit the high temporal resolution
+and redundancy suppression of event cameras, but they are
+application specific and may not be safe (depending on the
+power of the laser needed to scan far away objects).
+
+
+.Depth estimation types possible
+* Instantaneous Stereo
+* Multi-Perspective Panoramas
+* Monocular Depth Estimation
+* Stereo Depth for SLAM
+
+A table comparing different stereo methods is provided in [207]
+
+
+
+
+== WANG AND SHEN: FLOW-MOTION AND DEPTH NETWORK FOR MONOCULAR STEREO AND BEYOND
+
+
+Abstract—We propose a learning-based method 1 that solves monocular stereo and can be extended to fuse depth information from multiple target frames. Given two unconstrained images from a monocular camera with known intrinsic calibration, our network estimates relative camera poses and the depth map of the source image. The core contribution of the proposed method is threefold. 
+First, a network is tailored for static scenes that jointly estimates the optical flow and camera motion. By the joint estimation, the optical flow search space is gradually reduced resulting in an efficient and accurate flow estimation. 
+
+Second, a novel triangulation layer is proposed to encode the estimated optical flow and camera motion while avoiding common numerical issues caused by epipolar. 
+
+Third, beyond two-view depth estimation, we further extend the above networks to fuse depth information from multiple target images and estimate the depth map of the source image. To further benefit the research community, we introduce tools to generate realistic structure-from-motion datasets such that deep networks can be well trained and evaluated. The proposed method is compared with previous methods and achieves state-of-the-art results within less time. Images from real-world applications and Google Earth are used to demonstrate the generalization ability of the method. 
+// Index Terms—SLAM, visual learning, perception and autonomy.
+
+image::3-12-2021-18-22-18-PM.png[] 
+Fig. 2. The architecture of the proposed flow-motion network and depth network. Here, only the two-view architecture is shown for simplicity. The extension to
+fuse multiple depth information is shown in Fig. 5. The flow-motion network jointly estimates the optical flow and camera poses, and the depth network triangulates
+the depth of each pixel in the source image. Although both networks are based on simple encoder-decoder architectures, the proposed joint estimation (Section III-A)
+and triangulation layer (Section III-B) enables high-quality and efficient estimation.
+
+image::3-12-2021-18-26-46-PM.png[]  
+Fig. 4. Example to show the numerical stability in triangulation. O s and O t are the optical centers of I s and I t , respectively. d max and d min are the maximum and minimum depth of the scene. e i is the corresponding epipolar line of pixel x i . (a) In stereo configurations, the depth can be reliably calculated by finding the corresponding point on e 0 . (b) In unconstrained monocular stereo problems, the epipolar line e 1 of x 1 (the epipolar point) degenerates into a point, thus the depth is unobservable. For pixels near the epipolar point, such as x 2 , the epipolar line e 2 is very short, and the result is noise-prone.
+
+image:3-12-2021-18-29-30-PM.png[]  
+Fig. 5. Extending the depth net to fuse multiple depth information. (a) Twoview depth estimation network. (b) Multiple depth fusion extension. The twoview encoder network encodes the depth information of each image pair into depth codes dc i . Multiple codes are pooled into dc  and the multiview fusion network takes dc  to estimate the depth map.
+
+=== Multiview Depth Fusion
+
+In real-world applications (e.g. robot navigation), the depth
+of the source image can be solved by multiple target images.
+Here, we extend the proposed two-view monocular stereo net-
+works to fuse multiview information. Compared with two-view
+image pairs, multiview images bring more information about the
+environment structure, thus the fused depth maps can be more
+robust and accurate. However, fusing depth information from
+multiview images is non-trivial due to the arbitrary number of
+image pairs and different depth scales.
+Fig. 5 shows how the two-view depth net is extended. The
+two-view depth net introduced in Sec. III-B is divided into two
+parts: two-view encoder and multiview fusion. The first part
+independently encodes the triangulation layer tri of each image
+pair into multi-resolution depth codes dc. Depth codes from
+multiple image pairs, {dc 0 , ..., dc N −1 }, are fused by mean-
+pooling layers. The fused code of each pixel dc  (x) is calculated
+
+Using pooling layers to fuse information has been used in
+many multiview stereo works (e.g., DeepMVS [10]). Different
+from these works, we use multiple pooling layers to fuse the
+depth codes at different resolutions such that both the global
+information and fine details are preserved. The fusion network
+
+
+C. Depth Fusion Evaluation
+Since the DeMoN dataset only provides two-view image
+pairs, we use the proposed GTA-SfM dataset to train and eval-
+uate the multiview depth fusion performance. We first train the
+flow-motion network using two-view image pairs for 210 k steps
+and then train the extended multiview fusion network for 130 k
+steps. The code sizes for depth fusion is set to 128, 128, 128, 64,
+and 64 from coarse to fine, respectively.
+We first evaluate the quality of estimated depth maps using
+different numbers of target images. We also compare the depth
+net with DeepMVS [10] which is also trained using images from
+GTA5. DeepMVS takes images with ground truth camera poses
+as input and our method use images only. For each number of
+target images, we randomly sample 300 pairs and compute the
+mean depth error. Table II shows the depth quality given different
+numbers of target images. Clearly, the depth quality improves
+when more images are observed, which shows the effectiveness
+of the multiview fusion and matches the experience from clas-
+sic SfM methods. We also visualize estimated depth maps for
+qualitative comparison in Fig. 8. Our method estimates smooth
+and detailed depth maps a
+
+
+
+
+
+
+
+
+
+Visual SLAM: Why Filter?
+
+// evaluate on
+
+== depth prediction
+
+=== CNN-SLAM: Real-time dense monocular SLAM with learned depth prediction
+
+Given the recent advances in depth prediction from Con-
+volutional Neural Networks (CNNs), this paper investigates
+how predicted depth maps from a deep neural network can
+be deployed for accurate and dense monocular reconstruc-
+tion. We propose a method where CNN-predicted dense
+depth maps are naturally fused together with depth mea-
+surements obtained from direct monocular SLAM. Our fu-
+sion scheme privileges depth prediction in image locations
+where monocular SLAM approaches tend to fail, e.g. along
+low-textured regions, and vice-versa. We demonstrate the
+use of depth prediction for estimating the absolute scale of
+the reconstruction, hence overcoming one of the major lim-
+itations of monocular SLAM. Finally, we propose a frame-
+work to efﬁciently fuse semantic labels, obtained from a sin-
+gle frame, with dense SLAM, yielding semantically coherent
+scene reconstruction from a single view. Evaluation results
+on two benchmark datasets show the robustness and accu-
+racy of our approach.
+
+Figure 3. Comparison among (a) direct CNN-depth prediction,
+(b) after depth adjustment and (c) after depth adjustment and re-
+ﬁnement, in terms of (A) pose trajectory accuracy and (B) depth
+estimation accuracy. Blue pixels depict correctly estimated depths,
+i.e. within 10 % of ground-truth. The comparison
+
+image:3-12-2021-19-03-26-PM.png[] 
+
+[depth estimation, globally accurate, locally blurred depth borders ]
+Recently, a new avenue of research has emerged that addresses depth prediction from a single image by means of learned approaches. In particular, the use of deep Convolutional Neural Networks (CNNs) [16, 2, 3] in an end-to-end fashion has demonstrated the potential of regressing depth maps at a relatively high resolution and with a good absolute accuracy even under the absence of monocular cues (texture, repetitive patterns) to drive the depth estimation task. One advantage of deep learning approaches is that the absolute scale can be learned from examples and thus predicted from a single image without the need of scene-based assumptions or geometric constraints, unlike [10, 18, 1]. A major limitation of such depth maps is the fact that, although globally accurate, depth borders tend to be locally blurred: hence, if such depths are fused together for scene reconstruction as in [16], the reconstructed scene will overall lack shape details.
+
+[single view depth prediction]
+Relevantly, despite the few methods proposed for single view depth prediction, the application of depth prediction to higher-level computer vision tasks has been mostly overlooked so far, with just a few examples existing in literature [16]. The main idea behind this work is to exploit the best from both worlds and propose a monocular SLAM approach that fuses together depth prediction via deep networks and direct monocular depth estimation so to yield a dense scene reconstruction that is at the same time unambiguous in terms of absolute scale and robust in terms of tracking.
+
+[recover blurred depth borders] 
+To recover blurred depth borders, the CNNpredicted depth map is used as initial guess for dense reconstruction and successively reﬁned by means of a direct SLAM scheme relying on small-baseline stereo matching similar to the one in [4]. Importantly, small-baseline stereo matching holds the potential to reﬁne edge regions on the predicted depth image, which is where they tend to be more blurred. At the same time, the initial guess obtained from the CNN-predicted depth map can provide absolute scale information to drive pose estimation, so that the estimated pose trajectory and scene reconstruction can be signiﬁcantly more accurate in terms of absolute scale compared to the
+
+
+
+image:3-12-2021-19-13-25-PM.png[] 
+
+DA-RNN, semantic scene reconstruction
+
+we are mainly interested in depth map, then only we search for segmentation.
+
+because we have a stereo images, qequences of images or video stream, we don't need to solve static image semantic segmentation.
+
+we can utilize image flow approach to approximately understand dynamic objects bounding boxes without segmentation using image flows primarily
+
+
+focus on image flows
