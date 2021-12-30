@@ -13,6 +13,8 @@ global bayes optimization
 
 encoder - decoder
 
+
+
 3. Описание алгоритмов ORB SLAM, 
 описание методов ИИ, используемых в SLAM.
 - 50 стр.
@@ -75,49 +77,49 @@ Probabilistic Data Association for Semantic SLAM
 // the robot-landmark pose optimization. The performance of our
 // algorithm is demonstrated on indoor and outdoor datasets.
 
-.Example keyframe image overlaid with ORB features (green points) and object detections
-image:4-12-2021-15-25-37-PM.png[] 
+// .Example keyframe image overlaid with ORB features (green points) and object detections
+// image:4-12-2021-15-25-37-PM.png[] 
 
-.Estimated sensor trajectory (blue) and landmark positions and classes using inertial, geometric, and semantic measurements such as those in Fig. 1. The accompanying video shows the estimation process in real time.
-image:4-12-2021-15-26-20-PM.png[] 
-
-
-Semantic information
-The last type of measurement used are object detections
-S t extracted from every keyframe image. An object detection
-s k = (s ck , s sk , s bk ) ∈ S t extracted from keyframe t consists of
-a detected class s ck ∈ C, a score s sk quantifying the detection
-confidence, and a bounding box s bk . Such information can be
-obtained from any modern approach for object recognition
-such as [5], [34]–[36]. In our implementation, we use a
-deformable parts model (DPM) detector [4], [37], [38],
-which runs on a CPU in real time
-
-Problem (Semantic SLAM). Given inertial I , {I t } Tt=1 ,
-geometric Y , {Y t } Tt=1 , and semantic S , {S t } Tt=1
-measurements, estimate the sensor state trajectory X and the
-positions and classes L of the objects in the environment.
-
-The inertial and geometric measurements are used to
-track the sensor trajectory locally and, similar to a visual
-odometry approach, the geometric structure is not recovered.
-The semantic measurements, in contrast, are used to construct
-a map of objects that can be used to perform loop closure that
-is robust to ambiguities and viewpoint and is more efficient
-than a SLAM approach that maintains full geometric structure.
+// .Estimated sensor trajectory (blue) and landmark positions and classes using inertial, geometric, and semantic measurements such as those in Fig. 1. The accompanying video shows the estimation process in real time.
+// image:4-12-2021-15-26-20-PM.png[] 
 
 
-использование реальных объектов в качестве точек 
-привязки на карте незначительно улучшило точность позиционирования для монокулярного SLAM, 
-при этом само наличие семантических объектов в карте или семантической карты может оказать совершенно другой эффект.
+// Semantic information
+// The last type of measurement used are object detections
+// S t extracted from every keyframe image. An object detection
+// s k = (s ck , s sk , s bk ) ∈ S t extracted from keyframe t consists of
+// a detected class s ck ∈ C, a score s sk quantifying the detection
+// confidence, and a bounding box s bk . Such information can be
+// obtained from any modern approach for object recognition
+// such as [5], [34]–[36]. In our implementation, we use a
+// deformable parts model (DPM) detector [4], [37], [38],
+// which runs on a CPU in real time
 
-Зная семантику карты, можно предлагать пользователю более точный и понятный маршрут. Объекты карты (дверь, окно, ...) могут быть поняты и восприняты человеком.
+// Problem (Semantic SLAM). Given inertial I , {I t } Tt=1 ,
+// geometric Y , {Y t } Tt=1 , and semantic S , {S t } Tt=1
+// measurements, estimate the sensor state trajectory X and the
+// positions and classes L of the objects in the environment.
 
-В отличии от методов SLAM без извлечения семантики карты, где характерная точка на изображении это яркая точка на стене в которой определенным образом изменяется градиент яркости, что невозможно использовать для объяснения маршрута пользователю.
+// The inertial and geometric measurements are used to
+// track the sensor trajectory locally and, similar to a visual
+// odometry approach, the geometric structure is not recovered.
+// The semantic measurements, in contrast, are used to construct
+// a map of objects that can be used to perform loop closure that
+// is robust to ambiguities and viewpoint and is more efficient
+// than a SLAM approach that maintains full geometric structure.
 
-Использование семантики для построения маршрута это отдельная глобальная задача. Когда навигатор диктует пользователю инструкции движения по маршруту, определенная семантика карты при этом используется.
 
-Значительное количество исследований посвящены использованию более деальной семантики карты для навигации в городских условиях и внутри помещений.
+// использование реальных объектов в качестве точек 
+// привязки на карте незначительно улучшило точность позиционирования для монокулярного SLAM, 
+// при этом само наличие семантических объектов в карте или семантической карты может оказать совершенно другой эффект.
+
+// Зная семантику карты, можно предлагать пользователю более точный и понятный маршрут. Объекты карты (дверь, окно, ...) могут быть поняты и восприняты человеком.
+
+// В отличии от методов SLAM без извлечения семантики карты, где характерная точка на изображении это яркая точка на стене в которой определенным образом изменяется градиент яркости, что невозможно использовать для объяснения маршрута пользователю.
+
+// Использование семантики для построения маршрута это отдельная глобальная задача. Когда навигатор диктует пользователю инструкции движения по маршруту, определенная семантика карты при этом используется.
+
+// Значительное количество исследований посвящены использованию более деальной семантики карты для навигации в городских условиях и внутри помещений.
 
 // tag:semantic_map[]
 from: Visual Semantic SLAM with Landmarks for Large-Scale Outdoor
@@ -133,48 +135,48 @@ for real improvement of overall cognitive level of robots.
 .The flowchart of whole system.
 image::4-12-2021-17-59-58-PM.png[] 
 
-.семантический граф, объекты на графе включают в себя: автомобили, организации, людей
-image::4-12-2021-18-01-49-PM.png[] 
+// .семантический граф, объекты на графе включают в себя: автомобили, организации, людей
+// image::4-12-2021-18-01-49-PM.png[] 
 
-Topological semantic mapping: The semantic SLAM
-can also generate a topological semantic map which only
-contains reachable relationships between landmarks and their
-geometrical relationships. There will be only edges and nodes
-in the semantic map and be more suitable for global path
-planning.
-The topological map is built through the following steps.
-First, after the mapping process in SLAM system, the trajec-
-tory of camera will be saved. The landmark will be associated
-with its closest key frame. Second, there will be two kinds of
-key frame that are saved, i.e. the key frames associated with
-landmarks and the key frames in where to turn. Third, the
-map will be optimized if the place is visited for more than
-one times. The previous nodes will be fused with the new
-node if they represent the same location or landmark. The
-Topological semantic map is shown in the figure 3.
+// Topological semantic mapping: The semantic SLAM
+// can also generate a topological semantic map which only
+// contains reachable relationships between landmarks and their
+// geometrical relationships. There will be only edges and nodes
+// in the semantic map and be more suitable for global path
+// planning.
+// The topological map is built through the following steps.
+// First, after the mapping process in SLAM system, the trajec-
+// tory of camera will be saved. The landmark will be associated
+// with its closest key frame. Second, there will be two kinds of
+// key frame that are saved, i.e. the key frames associated with
+// landmarks and the key frames in where to turn. Third, the
+// map will be optimized if the place is visited for more than
+// one times. The previous nodes will be fused with the new
+// node if they represent the same location or landmark. The
+// Topological semantic map is shown in the figure 3.
 
-// использование нн для рекомендации и оптимизации использования семантики
+// // использование нн для рекомендации и оптимизации использования семантики
 
-It will be useful for large-scale landmark-based
-navigation tasks or human-robot interaction.
-Experiment shows that semantic information will allow
-the robots to know more about the environments not only
-the meaningless features but also their semantic meanings.
-Besides, based on semantic meaning, the robots will re-
-localize themselves with more robust features such as features
-on buildings, roads, sidewalks, walls, rather than vehicles,
-trees, person, etc.
+// It will be useful for large-scale landmark-based
+// navigation tasks or human-robot interaction.
+// Experiment shows that semantic information will allow
+// the robots to know more about the environments not only
+// the meaningless features but also their semantic meanings.
+// Besides, based on semantic meaning, the robots will re-
+// localize themselves with more robust features such as features
+// on buildings, roads, sidewalks, walls, rather than vehicles,
+// trees, person, etc.
 
-The experiments were designed by using ROS and Keras,
-our computing platform involves Intel Core i7 CPU and
-NVIDIA GeForce GTX 1080Ti GPU platform.
-We have tested the system run time when they work
-together. The overall system can run in nearly 1.8Hz in our
-computing system. Since the semantic segmentation model we
-use is based on PSPNet-101 which is a large CNN model
-without acceleration
+// The experiments were designed by using ROS and Keras,
+// our computing platform involves Intel Core i7 CPU and
+// NVIDIA GeForce GTX 1080Ti GPU platform.
+// We have tested the system run time when they work
+// together. The overall system can run in nearly 1.8Hz in our
+// computing system. Since the semantic segmentation model we
+// use is based on PSPNet-101 which is a large CNN model
+// without acceleration
 
-image::4-12-2021-18-09-57-PM.png[] 
+// image::4-12-2021-18-09-57-PM.png[] 
 
 // Visual Semantic SLAM with Landmarks for Large-Scale Outdoor
 // Environment
@@ -189,111 +191,111 @@ image::4-12-2021-18-09-57-PM.png[]
 
 // tag:DOT[]
 
-DOT: Dynamic Object Tracking for Visual SLAM
+// DOT: Dynamic Object Tracking for Visual SLAM
 
 
-для навигации в динамическом окружении необходимо по разному учитывать подвижные и неподвижные объекты. .
+// для навигации в динамическом окружении необходимо по разному учитывать подвижные и неподвижные объекты. .
 
 
-Simultaneous Localisation and Mapping, commonly known by its acronym SLAM, is one of the fun-
-damental capabilities for the autonomous navigation of robotic platforms [3]. Its goal is the joint
-estimation of the robot motion and a map of its surroundings, from the information of its embedded
-sensors. Visual SLAM, for which the sensors are mainly, or exclusively, cameras, is one of the most
-challenging yet relevant configurations.
-Despite the significant advances in SLAM in recent years, most systems still assume a static envi-
-ronment, where the relative position between the 3D points in the scene remains unchanged, the only
-movement being that of the camera. Following this fundamental assumption, camera-pose estimation
-algorithms attribute the changes between two images exclusively to the relative transformation due
-to camera displacements. Therefore, they can not account for the effects of moving objects. At best,
-some algorithms can detect and treat them as outliers [15, 16] to be ignored during the pose tracking
-and map estimation process. However, this does not prevent that, during the time interval elapsed
-until their detection as moving objects, the associated information is integrated into the estimation
-assuming scene rigidity, introducing errors and inconsistencies in the pose and map estimations. More-
-over, for those visual SLAM approaches that base the pose tracking on the matching of a small number
-of key-points, the errors generated by dynamic elements can be fatal and even lead to system failure.
-The world of real applications in which a robot must operate is, in general, far from being com-
-pletely static: autonomous navigation of vehicles such as cars or drones, augmented reality applications
-or terrestrial and even planetary exploration tasks (where the lack of identifiable characteristics in
-the images makes SLAM systems precarious in the presence of shadows or other robots). It is there-
-fore necessary to develop visual SLAM systems with the necessary robustness to operate in highly
-dynamic environments. This was the motivation for this work, which is aimed at developing an image
-processing strategy that improves the robustness of a visual SLAM system in environments containing
-moving objects. As a result, we developed “Dynamic Object Tracking” (DOT), a front-end system
-that combines semantic instances with multi-view geometry to estimate the movement of the camera
-as well as that of scene objects using direct methods [4]. The result of the pre-processing is a mask
-encoding both static and dynamic parts of each image fed into the SLAM system, so as to not use
-the correspondences found in the dynamic regions. The study includes an experimental validation
-specifically designed to evaluate the system’s ability to effectively reduce the errors associated with
-SLAM mapping and motion estimation.
-The main contributions of our proposed system can be summarised as:
-• Significant improvement in the robustness and accuracy of the coupled SLAM system in highly
-dynamic environments.
-• Independence with respect to the particular SLAM system, which makes it a versatile front-end
-that can be adapted with minimal integration work to any state-of-art visual odometry or SLAM
-system.
-• Unlike other systems, it can be implemented to operate in real time, since DOT allows semantic
-segmentation to be performed at a lower frequency than that of the camera
-• Robustness against neural net segmentation errors.
+// Simultaneous Localisation and Mapping, commonly known by its acronym SLAM, is one of the fun-
+// damental capabilities for the autonomous navigation of robotic platforms [3]. Its goal is the joint
+// estimation of the robot motion and a map of its surroundings, from the information of its embedded
+// sensors. Visual SLAM, for which the sensors are mainly, or exclusively, cameras, is one of the most
+// challenging yet relevant configurations.
+// Despite the significant advances in SLAM in recent years, most systems still assume a static envi-
+// ronment, where the relative position between the 3D points in the scene remains unchanged, the only
+// movement being that of the camera. Following this fundamental assumption, camera-pose estimation
+// algorithms attribute the changes between two images exclusively to the relative transformation due
+// to camera displacements. Therefore, they can not account for the effects of moving objects. At best,
+// some algorithms can detect and treat them as outliers [15, 16] to be ignored during the pose tracking
+// and map estimation process. However, this does not prevent that, during the time interval elapsed
+// until their detection as moving objects, the associated information is integrated into the estimation
+// assuming scene rigidity, introducing errors and inconsistencies in the pose and map estimations. More-
+// over, for those visual SLAM approaches that base the pose tracking on the matching of a small number
+// of key-points, the errors generated by dynamic elements can be fatal and even lead to system failure.
+// The world of real applications in which a robot must operate is, in general, far from being com-
+// pletely static: autonomous navigation of vehicles such as cars or drones, augmented reality applications
+// or terrestrial and even planetary exploration tasks (where the lack of identifiable characteristics in
+// the images makes SLAM systems precarious in the presence of shadows or other robots). It is there-
+// fore necessary to develop visual SLAM systems with the necessary robustness to operate in highly
+// dynamic environments. This was the motivation for this work, which is aimed at developing an image
+// processing strategy that improves the robustness of a visual SLAM system in environments containing
+// moving objects. As a result, we developed “Dynamic Object Tracking” (DOT), a front-end system
+// that combines semantic instances with multi-view geometry to estimate the movement of the camera
+// as well as that of scene objects using direct methods [4]. The result of the pre-processing is a mask
+// encoding both static and dynamic parts of each image fed into the SLAM system, so as to not use
+// the correspondences found in the dynamic regions. The study includes an experimental validation
+// specifically designed to evaluate the system’s ability to effectively reduce the errors associated with
+// SLAM mapping and motion estimation.
+// The main contributions of our proposed system can be summarised as:
+// • Significant improvement in the robustness and accuracy of the coupled SLAM system in highly
+// dynamic environments.
+// • Independence with respect to the particular SLAM system, which makes it a versatile front-end
+// that can be adapted with minimal integration work to any state-of-art visual odometry or SLAM
+// system.
+// • Unlike other systems, it can be implemented to operate in real time, since DOT allows semantic
+// segmentation to be performed at a lower frequency than that of the camera
+// • Robustness against neural net segmentation errors.
 
 
-1. не учитывать информацию о том что объекты могут двигаться
+// 1. не учитывать информацию о том что объекты могут двигаться
 
-The first of the categories, and the most general one, models the scene as a set of non-rigid parts,
-hence including deformable and dynamic objects [17, 11, 12]. While this research line is relevant
-because of its generality and potential applications, it also poses significant challenges mainly related
-to deformation models. In this work, we consider that the world is composed of a variable number of
-rigid solids, which is the premise behind the other two categories of dynamic visual SLAM.
+// The first of the categories, and the most general one, models the scene as a set of non-rigid parts,
+// hence including deformable and dynamic objects [17, 11, 12]. While this research line is relevant
+// because of its generality and potential applications, it also poses significant challenges mainly related
+// to deformation models. In this work, we consider that the world is composed of a variable number of
+// rigid solids, which is the premise behind the other two categories of dynamic visual SLAM.
 
-2. игнорировать объекты которые потенциально могут двигаться:
+// 2. игнорировать объекты которые потенциально могут двигаться:
 
-Along this line of work, DynaSLAM [1], built on
-top of ORB-SLAM2 [16], aims to estimate static maps that can be reused in long-term applications.
-Dynamic objects are removed by combining 1) semantic segmentation for potentially moving objects,
-and 2) multi-view geometry for detecting inconsistencies in the rigid model. Mask R-CNN [8] is
-used for semantic segmentation, which detects and classifies the objects in the scene into different
-categories, some of which have been pre-set as potentially dynamic (e.g., car or person). DynaSLAM
-was designed to mask out all the potentially mobile objects in the scene. This results in a lower
-accuracy than the original ORB-SLAM2 in scenes containing potentially mobile objects that are not
-actually moving (e.g., with many cars parked) since removing image tracks located on the potentially
-moving, but actually static, objects impacts negatively on the camera path estimation process. The
-aim of this work is, precisely, to overcome this problem as only those objects that are moving at that
-precise moment will be labelled as dynamic.
-
-
-3. динамическая карта, учитывать что некоторые объекты на карте потенциально могут двигаться
-
-line of work in dynamic visual SLAM, which goes beyond the segmentation and
-suppression of dynamic objects, includes works such as MID-Fusion [20] and MaskFusion [18]. Their
-aim is to reconstruct the background of the scene and also to estimate the movement of the different
-dynamic objects. For that purpose, sub-maps of each possible moving object are created and a joint
-estimation of both the objects and camera poses is carried out.
+// Along this line of work, DynaSLAM [1], built on
+// top of ORB-SLAM2 [16], aims to estimate static maps that can be reused in long-term applications.
+// Dynamic objects are removed by combining 1) semantic segmentation for potentially moving objects,
+// and 2) multi-view geometry for detecting inconsistencies in the rigid model. Mask R-CNN [8] is
+// used for semantic segmentation, which detects and classifies the objects in the scene into different
+// categories, some of which have been pre-set as potentially dynamic (e.g., car or person). DynaSLAM
+// was designed to mask out all the potentially mobile objects in the scene. This results in a lower
+// accuracy than the original ORB-SLAM2 in scenes containing potentially mobile objects that are not
+// actually moving (e.g., with many cars parked) since removing image tracks located on the potentially
+// moving, but actually static, objects impacts negatively on the camera path estimation process. The
+// aim of this work is, precisely, to overcome this problem as only those objects that are moving at that
+// precise moment will be labelled as dynamic.
 
 
-image::4-12-2021-18-22-09-PM.png[] 
+// 3. динамическая карта, учитывать что некоторые объекты на карте потенциально могут двигаться
 
-The first block (Instance Segmentation) corresponds to the CNN that segments out pixelwise all
-the dynamic objects (in our experimental part, only vehicles are considered). As explained below, the
-frequency at which the network operates does not need to be that of the video, but can be lower.
-The image processing block (Image processing) extracts and separates the points belonging to
-static regions of the image and the points that are in dynamic objects. Camera tracking is estimated
-by using only the static part of the scene. From this block, and taking into account the camera pose,
-the movement of each of the objects segmented by the network is calculated independently (Object
-tracking).
-The last block (Is the object moving?) determines, from geometric calculations, whether the
-objects previously labelled as dynamic by the network are indeed moving. This information is used
-to update the masks encoding the static and dynamic regions of each frame and to feed the linked
-odometry/SLAM visual system.
+// line of work in dynamic visual SLAM, which goes beyond the segmentation and
+// suppression of dynamic objects, includes works such as MID-Fusion [20] and MaskFusion [18]. Their
+// aim is to reconstruct the background of the scene and also to estimate the movement of the different
+// dynamic objects. For that purpose, sub-maps of each possible moving object are created and a joint
+// estimation of both the objects and camera poses is carried out.
 
-DOT is a novel front-end algorithm for SLAM systems that combines semantic segmentation with
-multi-view geometry to estimate camera and object motion using direct methods.
-The evaluation of DOT in combination with ORB-SLAM2 in three public datasets for autonomous
-driving research [6][5][2] demonstrates that DOT-generated object motion information allows the
-SLAM system to adapt to the scene content and to significantly improve its performance, in terms of
-both accuracy and robustness.
-The independence of DOT from SLAM system makes it a versatile front-end that can be adapted
-with minimal integration work to any state-of-art visual odometry or SLAM system. In addition,
-DOT allows semantic segmentation (typically involving high computational cost) to be performed at
-a lower frequency than the camera, which unlike other systems enables real-time implementation.
+
+// image::4-12-2021-18-22-09-PM.png[] 
+
+// The first block (Instance Segmentation) corresponds to the CNN that segments out pixelwise all
+// the dynamic objects (in our experimental part, only vehicles are considered). As explained below, the
+// frequency at which the network operates does not need to be that of the video, but can be lower.
+// The image processing block (Image processing) extracts and separates the points belonging to
+// static regions of the image and the points that are in dynamic objects. Camera tracking is estimated
+// by using only the static part of the scene. From this block, and taking into account the camera pose,
+// the movement of each of the objects segmented by the network is calculated independently (Object
+// tracking).
+// The last block (Is the object moving?) determines, from geometric calculations, whether the
+// objects previously labelled as dynamic by the network are indeed moving. This information is used
+// to update the masks encoding the static and dynamic regions of each frame and to feed the linked
+// odometry/SLAM visual system.
+
+// DOT is a novel front-end algorithm for SLAM systems that combines semantic segmentation with
+// multi-view geometry to estimate camera and object motion using direct methods.
+// The evaluation of DOT in combination with ORB-SLAM2 in three public datasets for autonomous
+// driving research [6][5][2] demonstrates that DOT-generated object motion information allows the
+// SLAM system to adapt to the scene content and to significantly improve its performance, in terms of
+// both accuracy and robustness.
+// The independence of DOT from SLAM system makes it a versatile front-end that can be adapted
+// with minimal integration work to any state-of-art visual odometry or SLAM system. In addition,
+// DOT allows semantic segmentation (typically involving high computational cost) to be performed at
+// a lower frequency than the camera, which unlike other systems enables real-time implementation.
 
 // end:DOT[]
 
@@ -396,3 +398,117 @@ image:4-12-2021-15-53-06-PM.png[]
 
 // image:4-12-2021-16-57-49-PM.png[] 
 
+
+
+
+image:3-12-2021-13-42-36-PM.png[] 
+
+image:3-12-2021-13-43-11-PM.png[] 
+
+Fig. 3 demonstrates the effectiveness of the proposed
+depth map reﬁnement procedure on a sequence of the
+benchmark ICL-NUIM dataset [8]. The Figure reports, in
+(c), the performance obtained after both adjustment and
+depth reﬁnement of the depth map, showing a signiﬁcant
+improvement of both depth estimation and pose trajectory
+with respect to the previous cases.
+
+
+=== Collaborative Visual SLAM Using Compressed
+Feature Exchange
+
+Fig. 1. Globally consistent map after merging individual maps obtained from
+three clients operating on the KITTI 00 sequence. The color indicates which
+agent created the map points.   
+image:3-12-2021-13-45-07-PM.png[] 
+
+image:3-12-2021-13-46-12-PM.png[] 
+
+B. Joint Mapping + oRB-SLAM
+
+In this letter, we present a comprehensive framework for col-
+laborative visual SLAM for a small team. To this end, we extend
+our previous binary feature coding framework with a depth and
+an inter-view coding method. This framework can be used stan-
+dalone in many application scenarios and is not limited to visual
+SLAM. In addition, we implemented a collaborative mapping
+scheme based on ORB-SLAM2 where multiple SLAM maps are
+built in parallel and can be merged when overlap between the
+maps is detected. We combine both approaches into a system ar-
+chitecture, where the computationally demanding visual SLAM
+
+system is running on a central processing node and only the vi-
+sual cues are extracted and compressed at the client agents. We
+evaluated our approach in terms of coding efficiency, timing,
+and absolute trajectory error on the KITTI dataset showing a
+substantial reduction in the required data rate up to 70.8% and a
+reduction in ATE by 53.7% using three agents and collaborative
+mapping compared to standalone mapping. Hence, our system
+closes a gap by addressing the need for data-efficiency in collab-
+orative visual SLAM setups. The feature compression can also
+be used when exchanging keyframes from a local visual odome-
+try with the central server. Integrating such a lightweight odom-
+etry into the client for a local control loop is left for future work.
+Further evaluation and the source code are available online. 1
+
+
+
+
+
+=== Flow-Motion and Depth Network for Monocular Stereo and Beyond
+
+Stereo from Monocular 
+
+
+
+Abstract—We propose a learning-based method 1 that solves
+monocular stereo and can be extended to fuse depth information
+from multiple target frames. Given two unconstrained images from
+a monocular camera with known intrinsic calibration, our network
+estimates relative camera poses and the depth map of the source
+image. The core contribution of the proposed method is threefold.
+First, a network is tailored for static scenes that jointly estimates the
+optical flow and camera motion. By the joint estimation, the optical
+flow search space is gradually reduced resulting in an efficient and
+accurate flow estimation. Second, a novel triangulation layer is
+proposed to encode the estimated optical flow and camera motion
+while avoiding common numerical issues caused by epipolar. Third,
+beyond two-view depth estimation, we further extend the above
+networks to fuse depth information from multiple target images
+and estimate the depth map of the source image. To further benefit
+the research community, we introduce tools to generate realistic
+structure-from-motion datasets such that deep networks can be
+well trained and evaluated. The proposed method is compared with
+previous methods and achieves state-of-the-art results within less
+time. Images from real-world applications and Google Earth are
+used to demonstrate the generalization ability of the method.
+Index Terms—SLAM, visual learning, aerial systems: perception
+and autonomy.
+
+image:3-12-2021-13-49-39-PM.png[] 
+
+Fig. 5. Extending the depth net to fuse multiple depth information. (a) Two-
+view depth estimation network. (b) Multiple depth fusion extension. The two-
+view encoder network encodes the depth information of each image pair into
+depth codes dc i . Multiple codes are pooled into dc  and the multiview fusion
+network takes dc  to estimate the depth map.
+
+
+two-view encoder network
+depth information
+depth codes
+
+image:3-12-2021-13-50-37-PM.png[] 
+
+
+
+VII. C ONCLUSION AND F UTURE W ORK
+In this letter, we propose a flow-motion network and a depth
+network that can estimate the camera motion and depth map
+given multiple motion stereo images. Both the networks are
+designed carefully to exploit the multiview geometric constraints
+among optical flow, camera motion and depth maps. We further
+extend the depth network to fuse multiple depth information into
+a depth map. To enlarge the available datasets, an open-source
+tool is proposed to extract unlimited realistic images with ground
+truth camera poses and depth maps.
