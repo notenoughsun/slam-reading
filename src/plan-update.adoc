@@ -1,0 +1,43 @@
+
+
+neural networks for navigation
+// list papers from link
+
+encoding radiomap using deep nn
+
+adaptive sensor fusion using nn
+adaptive calman filter using nn
+adaptive slam using nn
+
+using semantic segmentation 
+for tracking, mapping, other aproaches
+for better accuracy
+for robustness
+for easy data collection, data fusion
+
+
+use of all sources of information together, how to fuse data from different devices, 
+dence map, architecture, create sparse map from dense map & obserations
+
+multimodal map for multiple agents navigation
+
+
+
+Probabilistic Data Association for Semantic SLAM
+
+
+DOT: Dynamic Object Tracking for Visual SLAM
+
+semantic slam, nn slam, nn + orb
+
+cnn slam 
+
+
+// Alexey Panyov, [24.12.2021 22:11]
+Let me answer: The key application is data fusion. We need to process all the data into the same format. 
+
+I.e. it can be compact point clouds representation using AI&neural networks, it can be regression task (for localization), it can be segmentation.
+// 
+// Alexey Panyov, [24.12.2021 22:12]
+Yes, in addition to these mentioned by Ivan we also have all the topics related to visual localization, with keypoint detector and descriptor learning, neural matchers for data association, semantics and object classification. For point clouds we have feature extraction, alignment methods (enhanced by AI in various forms), uncertainty prediction, etc.
+I did not elaborate much on those topics, since we were just discussing the general lines.

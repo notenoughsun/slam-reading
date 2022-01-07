@@ -1,0 +1,173 @@
+\begin{thebibliography}{10}
+
+\bibitem{sfm_revist}
+J.~L. Schonberger and J.-M. Frahm.
+\newblock Structure-from-motion revisited.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2016.
+
+\bibitem{schonberger_2016}
+J.~Schonberger, E.~Zheng, M.~Pollefeys, and J.-M. Frahm.
+\newblock Pixelwise view selection for unstructured multi-view stereo.
+\newblock In {\em European Conference on Computer Vision (ECCV)}, 2016.
+
+\bibitem{demon}
+B.~Ummenhofer, H.~Zhou, J.~Uhrig, N.~Mayer, E.~Ilg, A.~Dosovitskiy, and
+  T.~Brox.
+\newblock {DeMoN}: Depth and motion network for learning monocular stereo.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2017.
+
+\bibitem{ls_net}
+R.~Clark, M.~Bloesch, J.~Czarnowski, S.~Leutenegger, and A.~J. Davison.
+\newblock Learning to solve nonlinear least squares for monocular stereo.
+\newblock In {\em European Conference on Computer Vision (ECCV)}, 2018.
+
+\bibitem{BA-Net}
+C.~Tang and P.~Tan.
+\newblock {BA-Net}: Dense bundle adjustment network.
+\newblock In {\em The International Conference on Learning Representations
+  (ICLR)}, 2019.
+
+\bibitem{numerical_optimization}
+J.~Nocedal and S.~J. Wright.
+\newblock {\em Numerical Optimization}.
+\newblock Springer, 2006.
+
+\bibitem{sun3d}
+J.~Xiao, A.~Owens, and A.~Torralba.
+\newblock {SUN3D}: A database of big spaces reconstructed using sfm and object
+  labels.
+\newblock In {\em European Conference on Computer Vision (ECCV)}, 2013.
+
+\bibitem{flownet}
+A.~Dosovitskiy, P.~Fischer, E.~Ilg, P.~Hausser, C.~Hazirbas, and V.~Golkov.
+\newblock Flownet: Learning optical flow with convolutional networks.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  2015.
+
+\bibitem{code_slam}
+M.~Bloesch, J.~Czarnowski, R.~Clark, S.~Leutenegger, and A.~J. Davison.
+\newblock {CodeSLAM} — learning a compact, optimisable representation for
+  dense visual {SLAM}.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2018.
+
+\bibitem{DeepMVS}
+P.~Huang, K.~Matzen, J.~Kopf, N.~Ahuja, and J.~Huang.
+\newblock {DeepMVS}: Learning multi-view stereopsis.
+\newblock In {\em IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, 2018.
+
+\bibitem{mvdepthnet}
+K.~Wang and S.~Shen.
+\newblock {MVDepthNet}: real-time multiview depth estimation neural network.
+\newblock In {\em International Conference on 3D Vision (3DV)}, 2018.
+
+\bibitem{DPSNet}
+S.~Im, H.~Jeon, S.~Lin, and I.~S. Kweon.
+\newblock {DPSNet}: End-to-end deep plane sweep stereo.
+\newblock In {\em The International Conference on Learning Representations
+  (ICLR)}, 2019.
+
+\bibitem{MVSNet}
+Y.~Yao, Z.~Luo, S.~Li, T.~Fang, and L.~Quan.
+\newblock {MVSNet}: Depth inference for unstructured multi-view stereo.
+\newblock In {\em European Conference on Computer Vision (ECCV)}, 2018.
+
+\bibitem{RMVSNet}
+Y.~Yao, Z.~Luo, S.~Li, T.~Shen, T.~Fang, and L.~Quan.
+\newblock Recurrent {MVSNet} for high-resolution multi-view stereo depth
+  inference.
+\newblock In {\em In IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, 2019.
+
+\bibitem{deeptam}
+H.~Zhou, B.~Ummenhofer, and T.~Brox.
+\newblock {DeepTAM}: Deep tracking and mapping.
+\newblock In {\em European Conference on Computer Vision (ECCV)}, 2018.
+
+\bibitem{multiview_geometry}
+R.~Hartley and A.~Zisserman.
+\newblock {\em Multiple View Geometry in Computer Vision}.
+\newblock Cambridge Univ. Press, 2004.
+
+\bibitem{flownet2}
+E.~Ilg, N.~Mayer, T.~Saikia, M.~Keuper, A.~Dosovitskiy, and T.~Brox.
+\newblock {FlowNet 2.0: Evolution of Optical Flow Estimation with Deep
+  Networks}.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2017.
+
+\bibitem{spy_net}
+A.~Ranjan and M.~J. Black.
+\newblock Optical flow estimation using a spatial pyramid network.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2017.
+
+\bibitem{pwc_net}
+D.~Sun, X.~Yang, M.~Liu, and J.~Kautz.
+\newblock {PWC-Net}: {CNNs} for optical flow using pyramid, warping, and cost
+  volume.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2018.
+
+\bibitem{dense_net}
+G.~Huang, Z.~Liu, L.~van~der Maaten, and K.~Q. Weinberger.
+\newblock Densely connected convolutional networks.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2017.
+
+\bibitem{mono_depth_2014}
+D.~Eigen, C.~Puhrsch, and R.~Fergus.
+\newblock Depth map prediction from a single image using a multi-scale deep
+  network.
+\newblock In {\em Neural Information Processing Systems (NIPS)}, 2014.
+
+\bibitem{fcrn_mono_depth}
+I.~Laina, C.~Rupprecht, V.~Belagiannis, F.~Tombari, and N.~Navab.
+\newblock Deeper depth prediction with fully convolutional residual networks.
+\newblock In {\em International Conference on 3D Vision (3DV)}, 2016.
+
+\bibitem{berhu_loss}
+L.~Zwald and S.~Lambert-Lacroix.
+\newblock The {BerHu} penalty and the grouped effect.
+\newblock {\em arXiv preprint arXiv:1207.6868}, 2012.
+
+\bibitem{sturm12iros}
+J.~Sturm, N.~Engelhard, F.~Endres, W.~Burgard, and D.~Cremers.
+\newblock A benchmark for the evaluation of {RGB-D} {SLAM} systems.
+\newblock In {\em Proc. of the {IEEE/RSJ} Int. Conf. on Intell. Robots and
+  Syst.}, 2012.
+
+\bibitem{mve_2014}
+S.~Fuhrmann, F.~Langguth, and M.~Goesele.
+\newblock {MVE} – a multi-view reconstruction environment.
+\newblock In {\em The Eurographics Workshop on Graphics and Cultural Heritage
+  (GCH)}, 2014.
+
+\bibitem{ummenhofer_2015}
+B.~Ummenhofer and T.~Brox.
+\newblock Global, dense multiscale reconstruction for a billion points.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  2015.
+
+\bibitem{adam}
+D.~P. Kingma and J.~L. Ba.
+\newblock {ADAM}: A method for stochastic optimization.
+\newblock In {\em The International Conference on Learning Representations
+  (ICLR)}, 2015.
+
+\bibitem{8_point}
+R.~I. Hartley.
+\newblock In defense of the eight-point algorithm.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  19:580–593, 1997.
+
+\bibitem{hirschmuller2008stereo}
+H.~Hirschmuller.
+\newblock Stereo processing by semiglobal matching and mutual information.
+\newblock {\em IEEE Transactions on pattern analysis and machine intelligence},
+  30(2):328--341, 2008.
+
+\end{thebibliography}

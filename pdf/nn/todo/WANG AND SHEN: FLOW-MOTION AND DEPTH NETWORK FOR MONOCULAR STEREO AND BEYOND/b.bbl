@@ -1,0 +1,40 @@
+\begin{thebibliography}{1}
+
+\bibitem{demon}
+B.~Ummenhofer, H.~Zhou, J.~Uhrig, N.~Mayer, E.~Ilg, A.~Dosovitskiy, and
+  T.~Brox.
+\newblock {DeMoN}: Depth and motion network for learning monocular stereo.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2017.
+
+\bibitem{freeze_people}
+Z.~Li, T.~Dekel, F.~Cole, R.~Tucker, N.~Snavely, C.~Liu, and W.~Freeman.
+\newblock Learning the depths of moving people by watching frozen people.
+\newblock In {\em IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, 2019.
+
+\bibitem{adam}
+D.~P. Kingma and J.~L. Ba.
+\newblock {ADAM}: A method for stochastic optimization.
+\newblock In {\em The International Conference on Learning Representations
+  (ICLR)}, 2015.
+
+\bibitem{deepmvs}
+P.~Huang, K.~Matzen, J.~Kopf, N.~Ahuja, and J.~Huang.
+\newblock {DeepMVS}: Learning multi-view stereopsis.
+\newblock In {\em IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, 2018.
+
+\bibitem{ls_net}
+R.~Clark, M.~Bloesch, J.~Czarnowski, S.~Leutenegger, and A.~J. Davison.
+\newblock Learning to solve nonlinear least squares for monocular stereo.
+\newblock In {\em European Conference on Computer Vision (ECCV)}, 2018.
+
+\bibitem{code_slam}
+M.~Bloesch, J.~Czarnowski, R.~Clark, S.~Leutenegger, and A.~J. Davison.
+\newblock {CodeSLAM} — learning a compact, optimisable representation for
+  dense visual {SLAM}.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2018.
+
+\end{thebibliography}

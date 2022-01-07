@@ -1,9 +1,11 @@
 = plan for documenting
 22.12.2021
 
+Автоматическая инициализация карты
+Навигация
+Локальное построение карты
 
-
-:toc: macro
+Замыкание графа карты
 
 
 .Необходимо описать
@@ -15,61 +17,26 @@
 Сделать 3 отдельных word документа (14 шрифт, полуторный интервал).
 Контекст - документ ПЗ для Интеллект Н.
 
+====
+СПО АТБ-С представляет собой навигационное устройство, применяемое, например, для навигации автомобиля и состоит из модулей:
+    • 
+• Модуля хранения данных
+• Модуля формирования радиокарты
+• Модуля формирования массива видеоизображений
+• Модуля формирования массива данных лазерного сканирования
 
 
-===================================
+СПО КСО ИН – это серверная часть решения, отвечающая за хранене и обработка карт (радио, видео, лазерный данные).
 
 
+• Модуля нейросети модели распространения сигнала
+• Модуля нейросети для работы с разнородным набором навигационных данных
 
 
+• Модуль анализа и обработки данных радиокарт с применением технологий искусственного интеллекта
+• Модуль анализа и обработки данных массива видеоизображений с применением технологий искусственного интеллекта 
+• Модуль анализа и обработки данных массива лазерного сканирования с применением технологий искусственного интеллекта
 
-посмотреть то же для автомобилей, как используется
-
-* "Камеры глубины — тихая революция (когда роботы будут видеть) Часть 1 / Хабр" https://habr.com/ru/post/457524/
-* "Depth Sensing Takes Machine Vision into Another Dimension - EE Times Europe" https://www.eetimes.eu/depth-sensing-takes-machine-vision-into-another-dimension/
-* "Real-Time High Resolution 3D Depth Sensing Enters the Next Round – Metrology and Quality News - Online Magazine" https://metrology.news/real-time-high-resolution-3d-depth-sensing-enters-the-next-round/
-* "Products – Nerian Vision Technologies" https://nerian.com/products/
-* "Depth Sensing Overview | Stereolabs" https://www.stereolabs.com/docs/depth-sensing/
-* "Depth Sensors: Precision & Personal Privacy | Terabee" https://www.terabee.com/depth-sensors-precision-personal-privacy/
-* "MIT-SPARK/Kimera-VIO: Visual Inertial Odometry with SLAM capabilities and 3D Mesh generation." https://github.com/MIT-SPARK/Kimera-VIO
-* "[1910.02490] Kimera: an Open-Source Library for Real-Time Metric-Semantic Localization and Mapping" https://arxiv.org/abs/1910.02490
-* "Vision-based SLAM: стерео- и depth-SLAM / Хабр" https://habr.com/ru/company/singularis/blog/279035/a
-
-
-
-
-посмотреть алгоритмы с учетом сегментации, сделать обзор
-
-image::images/visual-slam-d4d65.png[]
-
-.Kimera: an Open-Source Library for Real-Time Metric-Semantic Localization and Mapping https://arxiv.org/abs/1910.02490
-image::images/visual-slam-a0ea3.png[]
-
-https://github.com/MIT-SPARK/Kimera-VIO
-
-
-- review-taxonomy-of-slams-backend-optimization
-https://gisbi.medium.com/review-taxonomy-of-slams-backend-optimization-d1fa08ffec39
-
-- reference awesome-SLAM-list Visual Odometry (image based only)
-https://github.com/OpenSLAM/awesome-SLAM-list
-
-- Real-Time Appearance-Based Mapping http://introlab.github.io/rtabmap/
-- Four Kilometers Walk in Forest (an uncut real-time visual SLAM demo) https://www.youtube.com/watch?v=G-5jesjNfLc
-
-- Vision-based SLAM: стерео- и depth-SLAM https://habr.com/ru/company/singularis/blog/279035/
-
-- Kimera: an Open-Source Library for Real-Time Metric-Semantic Localization and Mapping https://arxiv.org/abs/1910.02490
-
-
-
-
-
-
-
-
-
-===================================
 
 Цель состоит в том, чтобы создать систему навигации с точностью менее 10 см
 

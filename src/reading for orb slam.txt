@@ -1,0 +1,49 @@
+:imagesdir: images
+:toc: preamble
+
+:author: timur chikichev
+:email: t.chikichev@navigine.ru
+
+:pygments-style: Coderay
+
+:toc: macro
+
+
+ORB-SLAM2 a complete SLAM system
+for monocular, stereo and RGB-D cameras, including map reuse,
+loop closing and relocalization capabilities
+
+back-end based on bundle adjustment
+with monocular and stereo
+observations
+
+lightweight localization mode that
+leverages visual odometry tracks for unmapped regions and
+matches to map points that allow for zero-drift localization
+
+as depth is not observable from just one camera,
+the scale of the map and estimated trajectory is unknown.
+In addition the system bootstrapping require multi-view or
+filtering techniques to produce an initial map as it cannot
+be triangulated from the very first frame.
+
+By using a stereo
+or an RGB-D camera all these issues are solved and allows
+for the most reliable Visual SLAM solutions.
+
+
+эксперименты () показывают что 
+совместная оптимизация (БА) участка карты дает большую точность чем стандартные методы минимизации фотометрической ошибки или ошибки с сенсора глубины  
+
+Our RGB-D results show that by using Bundle Adjust-
+ment (BA) we achieve more accuracy than state-of-the-
+art methods based on ICP or photometric and depth error
+minimization
+
+
+различные алгоритмы слам тестируются на данных собраннных в городских условиях
+
+В наборе данных объект (человек, робот или автомобиль) последовательно обходит определенную локацию. Когда объект возвращается в точку в которой уже построена карта, система должна зафиксировать объект на карте в правильной точке. Особенность работы алгоритма SLAM - механизм замыкания. Если фиксируются данные которые уже есть в карте, система должна определить совпадение и подстроить карту чтобы текущая точка и  точки тоже совпадали. 
+KITTI
+dataset [2]. This is an urban sequence with multiple loop
+closures that ORB-SLAM2 was able to successfully detect
